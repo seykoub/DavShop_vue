@@ -6,9 +6,8 @@ import Contact from '../views/Contact.vue'
 import Connexion from '../views/Connexion'
 import Propos from '../views/Propos.vue'
 import ItemDetails from'../views/ItemDetails.vue'
-
-
 import VueRouter from 'vue-router'
+
 
 // indinque a Vuejs qu'il peux utiliser le router partout 
 Vue.use(VueRouter);
