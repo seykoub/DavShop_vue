@@ -20,9 +20,8 @@
     </div>
     
   
-    <div class="flex flex-col">
       <Footer/>
-    </div>
+   
     
 
        
