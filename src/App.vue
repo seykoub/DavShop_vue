@@ -1,9 +1,9 @@
 <template>
-  <div id="app">
+  <div id="app" class="bg-green-50">
 
     <div class="flex flex-col justify-between min-h-screen space-x-0">
   <div class="flex w-full">
-    <img class="avshop-logo" alt="avshop logo" src="./assets/davLogo.jpg">
+
   
 
 

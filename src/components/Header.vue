@@ -7,9 +7,7 @@
       <!--<h3 class="font-bold text-2xl text-center"></h3>-->
       <!--Liste des liens -->
       <nav class=" w-full justify-between flex">
-           <input v-model="search"
-                      class=" flex gap-10 mt-2 border-cyan-900 m-8 border-2 focus:border-cyan-900 focus:outline-none lg:w-1/5 text-cyan-900 w-full px-8 py-1"
-                      type="text" placeholder="Effectuez une recherche">
+
                      
         <ul class="flex gap-10 mt-2">
     
@@ -45,12 +43,10 @@
               À propos
             </router-link>
           </li>
-        
         </ul>
       </nav>
     </div>
   </header>
-        
     
 </template>
 <script>
