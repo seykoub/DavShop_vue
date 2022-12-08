@@ -4,6 +4,7 @@ import router from './router/index';
 import VueSplide from '@splidejs/vue-splide';
 
 
+
 Vue.config.productionTip = false
 Vue.use(VueSplide)
 

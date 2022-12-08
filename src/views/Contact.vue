@@ -20,8 +20,8 @@
                     </div>
                     </div>
                 
-                    <div class="w-full md:w-1/2 flex flex-col md:ml-6 md:mt-0 mt-4">
-                        <label class="font-semibold leading-none">Numéro de Téléphone<sup class="text-red-700">*</sup></label>
+                    <div class="w-full flex flex-col  md:mt-0 mt-4">
+                        <label class="font-semibold leading-none">Email<sup class="text-red-700">*</sup></label>
                         <input
                          type="email" 
                          class="leading-none bg-white-100 border-2 border-cyan-900 text-slate-900 p-3 focus:outline-none focus:border-green-500 mt-4 border-b-2 " />
