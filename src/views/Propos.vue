@@ -1,4 +1,4 @@
-<template lang="">
+<template>
     <div class="bg-slate-50">
       <div class="flex-col w-full text-black text-4x1  mt-0 text-center" >
         Le concept de notre site se repose sur trois volets au choix :   Donner, Acheter et Vendre<br>
