@@ -12,57 +12,75 @@
                 <button class="text-white font-bold font-bold p-2" @click="toggleSuccess">X</button>
             </div>
 
+
             <!-- Modal ajouter d'annonce -->
-            <form class="absolute top-10 bg-indigo-100 w-full p-10 modal" v-show="modalOpen"
-                @submit.prevent="handleSubmit">
-                <div>
-                    <button @click.prevent="toggleModal()"
-                        class="p-2 text-xl font-bold text-black absolute right-5 top-5">X</button>
-                </div>
-                <h2 class="text-3xl text-center mb-5 font-bold">Ajouter une annonce</h2>
-                <div class="flex flex-col mb-4">
-                    <label for="" class="text-lg font-semibold">Titre de votre annonce</label>
-                    <input v-model="newItem.title" type="text" placeholder="Mon titre"
-                        class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-indigo-100">
-                </div>
+          <form
+              class="absolute top-10 bg-indigo-100 w-full p-10"
+              v-show="modalOpen"
+              @submit.prevent="handleSubmit">
+            <div>
+              <button
+                  @click.prevent="toggleModal()"
+                  class="p-2 text-xl font-bold text-indigo-500 absolute right-5 top-5">X</button>
+            </div>
+            <h2 class="text-3xl text-center mb-5 font-bold">Ajouter un article</h2>
+            <div class="flex flex-col mb-4">
+              <label for="" class="text-lg font-semibold">Titre de l'article</label>
+              <input
+                  v-model="newItem.title"
+                  type="text"
+                  placeholder="Mon super titre"
+                  class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-indigo-100">
+            </div>
 
-                <div class="flex flex-col mb-4">
-                    <label for="" class="text-lg font-semibold">Sommaire</label>
-                    <input v-model="newItem.summary" type="text" placeholder="Sommaire"
-                        class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-indigo-100">
-                </div>
+            <div class="flex flex-col mb-4">
+              <label for="" class="text-lg font-semibold">Sommaire</label>
+              <input
+                  v-model="newItem.summary"
+                  type="text"
+                  placeholder="Mon super titre"
+                  class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-indigo-100">
+            </div>
+            <div class="flex flex-col mb-4">
+              <label for="" class="text-lg font-semibold">Contenu de l'article</label>
+              <textarea
+                  v-model="newItem.content"
+                  type="text"
+                  rows="13"
+                  placeholder="Mon super titre"
+                  class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-indigo-100"></textarea>
+            </div>
 
-                <div class="flex flex-col mb-4">
-                    <label for="" class="text-lg font-semibold">Contenu de votre annonce</label>
-                    <textarea v-model="newItem.content" type="text" rows="13" placeholder="Description"
-                        class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-indigo-100"></textarea>
-                </div>
+            <div class="flex flex-col mb-4">
+              <label for="" class="text-lg font-semibold">Categorie</label>
+              <select
+                  v-model="newItem.category"
+                  class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-indigo-100">
+                <option value="Informatique" selected> Informatique</option>
+                <option value="Vetement"> Vetement</option>
+                <option value="Voiture"> Voiture</option>
+                <option value="Outillages"> Outillage</option>
+              </select>
+            </div>
 
-                <div class="flex flex-col mb-4">
-                    <label for="" class="text-lg font-semibold">Categorie</label>
-                    <select v-model="newItem.category"
-                        class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-indigo-100">
-                        <option value="Informatique" selected> Informatique</option>
-                        <option value="Vetement"> Vetement</option>
-                        <option value="Voiture"> Voituure</option>
-                        <option value="Outillages"> Outillage</option>
-                    </select>
-                </div>
+            <div class="flex flex-col mb-4">
+              <label for="" class="text-lg font-semibold">Auteur</label>
+              <input
+                  v-model="newItem.author"
+                  type="text" placeholder="Mon super titre"
+                  class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-indigo-100">
+            </div>
 
-                <div class="flex flex-col mb-4">
-                    <label for="" class="text-lg font-semibold">Auteur</label>
-                    <input v-model="newItem.author" type="text" placeholder="Auteur"
-                        class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-indigo-100">
-                </div>
+            <div class="flex flex-col mb-4">
+              <label for="" class="text-lg font-semibold">Image</label>
+              <input
+                  v-model="newItem.image"
+                  type="text" placeholder="copier l'url de l'image"
+                  class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-indigo-100">
+            </div>
 
-                <div class="flex flex-col mb-4">
-                    <label for="" class="text-lg font-semibold">Image</label>
-                    <input v-model="newItem.image" type="text" placeholder="copier l'url de l'image"
-                        class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-indigo-100">
-                </div>
-
-                <button class=" p-4 my-5 text-white" type="submit">Valider</button>
-            </form>
+            <button class="bg-slate-800 p-4 my-5 text-white" type="submit">Valider</button>
+          </form>
             <!-- Fin de formulaire  -->
 
 
@@ -197,5 +215,7 @@ export default {
 }
 </script>
 <style >
-
+.modal {
+  box-shadow: 0 0 0 50vmax rgba(0,0,0,.5);
+}
 </style>
