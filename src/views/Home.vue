@@ -1,41 +1,79 @@
 <template>
-<div class= "grid gap-4 grid-cols-4 mb-8 bg-slate-50 flex-col">
-     <main>
-        
-             <!--- <div class="grid gap-4 grid-cols-4 mb-8 bg-stone-50"> --> 
-   
-         <h1 class="text-left text-2xl mt-0 pt-0 text-cyan-500 text-start">vous pouvez vendre votre produit, acheter ou donner tout simplement! <br>Ensemble Donnons une second vie à vos produit !!!</h1>
-         
-        
-        <!---</div>-->
-        
-        <div  class="relative w-80 place-items-end top-0">
-           <!--<router-link to="Propos" class="dropdown-item"></router-link >-->
-        
-            <img
-            class="child-absolute"
-              src="../assets/davLogo.jpg"
-              alt=""
+  <main >
+  <!--Section 1-->
+  <section>
+    <!--Titre de mon site avec description-->
+    <div class="">
+      <h1 class="text-left text-2xl mt-0 pt-0">vous pouvez vendre votre produit, acheter ou donner tout simplement!</h1>
+      <h4 class="text-left text-2xl mt-0 pt-0">Ensemble Donnons une second vie à vos produit !!!</h4>
+    </div>
+    <br>
+    <!--Carroussel-->
+    <div class="object-cover ">
+      <hooper :settings="hooperSettings"  style="height: 600px" >
+        <slide v-for="post in latestPost" :key="post.id">
+         <Annonce :item="post"/>
+        </slide>
 
-              
-            />
-            <button class="text-xl py-2 mb-4 px-2 bg-cyan-500 ml-0 mt-5 font-semibold text-black mb-7 lg:mb-0" >
-                    <router-link to="contact">Nous contacter</router-link>
-                </button>
-            </div>
+      </hooper>
+    </div>
+  </section>
+  <!--Card étapes-->
+  <section>
+    <div></div>
+  </section>
 
-       
+  </main>
 
-       
-
-         </main>
-     </div>
 </template>
 <script>
+
+import { Hooper, Slide } from 'hooper';
+import 'hooper/dist/hooper.css';
+import { posts } from '../Data';
+import Annonce from "@/components/Card/Annonce";
+
+
 export default {
     name : 'Home',
-    
-}
+  components: {
+    Annonce,
+    Hooper,
+    Slide
+  },
+  computed: {
+    latestPost() {
+      let latest = posts.length + 1;
+      return posts.slice(latest - 9, latest)
+    }
+  },
+  data() {
+    return {
+      hooperSettings: {
+        itemsToShow: 3,
+        progress: true,
+        autoPlay: true,
+        playSpeed: 3000,
+        vertical: false,
+        infiniteScroll:true,
+
+        breakpoints: {
+
+          400: {
+            itemsToShow: 1
+          },
+          900: {
+            itemsToShow: 2
+          },
+          1000: {
+            itemsToShow: 3,
+          }
+        }
+      }
+    }
+  }
+};
+
 </script>
 <style lang="">
 

@@ -1,9 +1,9 @@
 <template>
-  <div id="app">
+  <div id="app" class="bg-emerald-50">
 
-    <div class="flex flex-col justify-between min-h-screen space-x-0">
-  <div class="flex w-full">
-    <img class="avshop-logo" alt="avshop logo" src="./assets/davLogo.jpg">
+    <div class="flex flex-col justify-between">
+  
+    
   
 
 
@@ -20,10 +20,11 @@
     </div>
     
   
+      <Footer/>
+   
     
-    <Footer/>
 
-        </div>
+       
   </div>
 </template>
 
@@ -49,23 +50,5 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color:#008037  ;
-  margin-top: 60px;
-}
 
-.avshop-logo-wrapper {
-  flex-shrink: 0;
-}
-
-.avshop-logo {
-  height: 6rem;
-  width: 9rem;
-  top:0px;
-  bottom:0px;
-}
 </style>

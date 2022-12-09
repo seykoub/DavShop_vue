@@ -1,4 +1,4 @@
-export const annonces = [
+export const posts = [
 
    
     {

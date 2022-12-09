@@ -116,7 +116,7 @@
     </div>
 </template>
 <script>
-import { annonces } from '../Data';
+import { posts } from '../Data';
 import Annonce from '../components/Card/Annonce.vue';
 import Spinner from '../components/Spinner.vue'
 export default {
@@ -124,7 +124,7 @@ export default {
     components: { Annonce, Spinner },
     data() {
         return {
-            annonces: annonces,
+            annonces: posts,
             search: "",
             categoryFilter: "",
             modalOpen: false,

@@ -1,83 +1,136 @@
 <template>
-<!--Pour le sementique HTML on declare un barre de navigation avec la balise header-->
-  <header class="p-6 border-b- border-cyan-900 text-black  grow ">
-    <div class="container  block lg:flex justify-between items-center">
-      <!--Titre de mon site--> 
-     
-      <!--<h3 class="font-bold text-2xl text-center"></h3>-->
-      <!--Liste des liens -->
-      <nav class=" w-full justify-between flex">
-           <input v-model="search"
-                      class=" flex gap-10 mt-2 border-cyan-900 m-8 border-2 focus:border-cyan-900 focus:outline-none lg:w-1/5 text-cyan-900 w-full px-8 py-1"
-                      type="text" placeholder="Effectuez une recherche">
-                     
+  <header class="container mx-auto flex justify-between items-center p-4 border-b-2 border-green-900 relative" >
+      <h3 class="text-2xl font-bold uppercase text-green-900">Davshop</h3>
+
+
+    <!-- navigation mobile -->
+    <!-- <div class="block lg:hidden">
+    <button class="flex items-center px-3 py-2 border rounded text-teal-200 border-teal-400 hover:text-white hover:border-white">
+      <svg class="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+    </button>
+  </div> -->
+
+    <button class="lg:hidden block" v-if="!isMobile" @click="(isMobile = !isMobile)">
+      <svg class="fill-current h-6 w-6" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
+    </button>
+    <button class="lg:hidden block" v-else  @click="(isMobile = !isMobile)">
+      <img src="https://simg.nicepng.com/png/small/25-258010_open-close-icon-png.png" alt="" class="fill-current h-6 w-6">
+  </button>
+<!-- navigation desktop -->
+
+      <nav class="justify-between lg:flex hidden ">
         <ul class="flex gap-10 mt-2">
-    
-        <li class="text-cyan-900 class=bg-orange-400  focus:outline-none focus:ring focus:ring-orange-400">
+
+          <li class="text-green-900  text-lg ">
             <router-link to="/" class-active="active" exact>
               Accueil
             </router-link>
           </li>
 
-          <li class="text-cyan-900 class=bg-orange-400  focus:outline-none focus:ring focus:ring-orange-400 ">
+          <li class="text-green-900  text-lg  ">
             <router-link to="/Annonces" class-active="active" exact>
               Nos annonces
             </router-link>
           </li>
-           <li class="text-cyan-900 class=bg-orange-400   focus:outline-none focus:ring focus:ring-orange-400 ">
-            <router-link to="ItemDetails" class="nav-link dropdown-toggle"  role="button" data-bs-toggle="dropdown"  class-active="active" aria-expanded="false">
-            Mon compte
-          </router-link >
-          <ul class="dropdown-menu text-cyan-900 class=bg-orange-400  focus:outline-none focus:ring focus:ring-orange-400">
-            <li><router-link to="Connexion" class="dropdown-item">Se connecter</router-link ></li>
-            <li><router-link to="Inscription"  class="dropdown-item">Création de compte</router-link ></li>
-          </ul>
+
+          <li class="text-green-900  text-lg ">
+            <router-link to="ItemDetails" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
+              class-active="active" aria-expanded="false">
+              Mon compte
+            </router-link>
+            <ul class="dropdown-menu text-green-900  text-lg">
+              <li><router-link to="Connexion" class="dropdown-item bg-green-900 text-white">Se connecter</router-link></li>
+              <li><router-link to="Inscription" class="dropdown-item bg-green-900 text-white">Création de compte</router-link></li>
+            </ul>
           </li>
 
-
-            <li class="text-cyan-900 class=bg-orange-400   focus:outline-none focus:ring focus:ring-orange-400 ">
+          <li class="text-green-900  text-lg ">
             <router-link to="/Contact" class-active="active" exact>
               Contact
             </router-link>
           </li>
-            <li class="text-cyan-900 class=bg-orange-400   focus:outline-none focus:ring focus:ring-orange-400 ">
+
+          <li class="text-green-900 text-lg">
             <router-link to="/Propos" class-active="active" exact>
               À propos
             </router-link>
           </li>
-        
+
         </ul>
       </nav>
-    </div>
-  </header>
-        
+
+      <!-- navigation mobile -->
+
+      <nav class="absolute top-20 left-0 bg-green-900 lg:hidden w-full z-10" v-if="isMobile">
+        <ul class="flex flex-col gap-10 mt-2">
+
+          <li class="text-white  text-xl text-center border-b-2 border-white py-2">
+            <router-link to="/" class-active="active" exact>
+              Accueil
+            </router-link>
+          </li>
+
+          <li class="text-white text-xl text-center border-b-2 border-white py-2 ">
+            <router-link to="/Annonces" class-active="active" exact>
+              Nos annonces
+            </router-link>
+          </li>
+
+          <li class="text-white  text-xl text-center border-b-2 border-white py-2 ">
+            <router-link to="Inscription" class-active="active" exact>
+              Création de compte
+            </router-link>
+          </li>
+          <li class="text-white  text-xl text-center border-b-2 border-white py-2 ">
+            <router-link to="Connexion" class-active="active" exact>
+              Se connecter
+            </router-link>
+          </li>
+
+          <li class="text-white  text-xl text-center border-b-2 border-white py-2 ">
+            <router-link to="/Contact" class-active="active" exact>
+              Contact
+            </router-link>
+          </li>
+
+          <li class="text-white  text-xl text-center border-b-2 border-white py-2 ">
+            <router-link to="/Propos" class-active="active" exact>
+              À propos
+            </router-link>
+          </li>
+
+        </ul>
+      </nav>
     
+
+  </header>
 </template>
 <script>
+
+
 export default {
     name: "Header",
-
     data() {
         return {
-           /* links: [
-                { href: "/", nomDulien: "Accueil" },
-                 { href: "/", nomDulien: "Mon compte" },
-                  { href: "/", nomDulien: "Mon panier" },
-            ]*/
+            isMobile: false
+            /* links: [
+                 { href: "/", nomDulien: "Accueil" },
+                  { href: "/", nomDulien: "Mon compte" },
+                   { href: "/", nomDulien: "Mon panier" },
+             ]*/
+        };
+    },
+    methods: {
+        showMenu() {
         }
-    
-}
-
-
-
+    },
+    components: {  }
 }
 </script>
 <style>
-.router-link-active {
-  border-bottom: 3px solid #ff914d;
-  color: #ff914d;
+/* .router-link-active {
+  border-bottom: 3px solid rgb(22, 78, 99);
+  color: rgb(22, 78, 99);
   font-weight: 600;
-}
-
-    
+} */
 </style>
