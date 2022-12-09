@@ -28,13 +28,13 @@
 
                 <div class="flex flex-col mb-4">
                     <label for="" class="text-lg font-semibold">Sommaire</label>
-                    <input v-model="newItem.summary" type="text" placeholder="Mon super titre"
+                    <input v-model="newItem.summary" type="text" placeholder="Sommaire"
                         class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-indigo-100">
                 </div>
 
                 <div class="flex flex-col mb-4">
                     <label for="" class="text-lg font-semibold">Contenu de votre annonce</label>
-                    <textarea v-model="newItem.content" type="text" rows="13" placeholder="Mon super titre"
+                    <textarea v-model="newItem.content" type="text" rows="13" placeholder="Description"
                         class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-indigo-100"></textarea>
                 </div>
 
@@ -42,16 +42,16 @@
                     <label for="" class="text-lg font-semibold">Categorie</label>
                     <select v-model="newItem.category"
                         class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-indigo-100">
-                        <option value="Programmning" selected> Informatique</option>
-                        <option value="Design"> Vetement</option>
-                        <option value="Politics"> Voituure</option>
-                        <option value="Cuisine"> Outillage</option>
+                        <option value="Informatique" selected> Informatique</option>
+                        <option value="Vetement"> Vetement</option>
+                        <option value="Voiture"> Voituure</option>
+                        <option value="Outillages"> Outillage</option>
                     </select>
                 </div>
 
                 <div class="flex flex-col mb-4">
                     <label for="" class="text-lg font-semibold">Auteur</label>
-                    <input v-model="newItem.author" type="text" placeholder="Mon super titre"
+                    <input v-model="newItem.author" type="text" placeholder="Auteur"
                         class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-indigo-100">
                 </div>
 
@@ -70,15 +70,12 @@
             <div class="my-10 lg:flex justify-between items-center block">
                 <div>
                     <h2 class="text-2xl font-semibold mb-2 text-cyan-900">Tous nos annonces</h2>
-                    <div class="h-1 w-60 bg-cyan-900 rounded"></div>
                 </div>
 
                 <button @click="toggleModal"
                     class="text-xl py-3 px-5 bg-cyan-500 mt-5 font-semibold text-black mb-7 lg:mt-0 mt-3 ">
                     Ajouter une annoce
                 </button>
-
-
             </div>
             <!--Formuaire de recherche -->
 
@@ -93,10 +90,10 @@
                     <select v-model="categoryFilter"
                          class=" flex gap-10 mt-2 border-cyan-900 m-8 border-2 focus:border-orange-400 focus:outline-none lg:w-1/5 text-cyan-900 w-full px-8 py-1">
                         <option value="" selected disabled default>Selectionner une categorie</option>
-                        <option value="Programmning" selected> Informatique</option>
-                        <option value="mode"> Véement</option>
+                        <option value="Informatique" selected> Informatique</option>
+                        <option value="Vetement"> Vétement</option>
                         <option value="Outillages"> Outillages</option>
-                        <option value="voiture"> Voiture</option>
+                        <option value="Voiture"> Voiture</option>
                     </select>
                     <button v-if="search.length > 0 || categoryFilter.length > 0"
                         class="bg-stone-300 text-cyan-300 text-xl font-bold" @click.prevent="btnResetForm">Retour</button>

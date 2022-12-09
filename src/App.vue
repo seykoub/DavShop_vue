@@ -1,19 +1,13 @@
 <template>
-  <div id="app" class="bg-emerald-50">
+  <div id="app" class="bg-emerald-50 m-auto">
 
     <div class="flex flex-col justify-between">
-  
-    
-  
-
-
-
          <!-- MENU -->
     <Header :titre="siteTitre" />
 
     </div>
 
-    <div class="container mx-auto">
+    <div class="container bg-emerald-50">
       <router-view>
       </router-view>
 
