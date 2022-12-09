@@ -243,6 +243,86 @@ export const posts = [
     date: "27/11/2022",
     image: "https://media.istockphoto.com/id/501264029/fr/photo/labourage-tracteur.jpg?s=612x612&w=is&k=20&c=fK6ZwOtlvbjZvu7o00appBI93pZ6Gr5mhezG2xbi2vc="
 },
+    {
+        id: 13,
+        title: "Chemise Enfant ",
+        summary: "Vente",
+        content: `Prix à négocier...`,
+        category: "Vetement",
+        author: "Saikou",
+        date: "10/12/2022",
+        image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80"
+    },
+    {
+        id: 14,
+        title: "Chemise Enfant ",
+        summary: "Vente",
+        content: `Prix à négocier...`,
+        category: "Vetement",
+        author: "Saikou",
+        date: "10/12/2022",
+        image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80"
+    },
+    {
+        id: 15,
+        title: "Chemise Enfant ",
+        summary: "Vente",
+        content: `Prix à négocier...`,
+        category: "Vetement",
+        author: "Saikou",
+        date: "10/12/2022",
+        image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80"
+    },
+    {
+        id: 16,
+        title: "Chemise Enfant ",
+        summary: "Vente",
+        content: `Prix à négocier...`,
+        category: "Vetement",
+        author: "Saikou",
+        date: "10/12/2022",
+        image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80"
+    },
+    {
+        id: 17,
+        title: "Chemise Enfant ",
+        summary: "Vente",
+        content: `Prix à négocier...`,
+        category: "Vetement",
+        author: "Saikou",
+        date: "10/12/2022",
+        image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80"
+    },
+    {
+        id: 18,
+        title: "Chemise Enfant ",
+        summary: "Vente",
+        content: `Prix à négocier...`,
+        category: "Vetement",
+        author: "Saikou",
+        date: "10/12/2022",
+        image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80"
+    },
+    {
+        id: 19,
+        title: "Chemise Enfant ",
+        summary: "Vente",
+        content: `Prix à négocier...`,
+        category: "Vetement",
+        author: "Saikou",
+        date: "10/12/2022",
+        image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80"
+    },
+    {
+        id: 20,
+        title: "Chemise Enfant ",
+        summary: "Vente",
+        content: `Prix à négocier...`,
+        category: "Vetement",
+        author: "Saikou",
+        date: "10/12/2022",
+        image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=688&q=80"
+    },
 
 
  ]
