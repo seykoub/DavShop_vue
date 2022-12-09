@@ -1,9 +1,12 @@
 <template>
+
   <div id="app" class="bg-emerald-50 ">
+
     <div class="flex flex-col justify-between">
          <!-- MENU -->
     <Header :titre="siteTitre" />
     </div>
+
     <div class="container mx-auto min-vh-100">
       <router-view>
       </router-view>

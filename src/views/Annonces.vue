@@ -12,57 +12,75 @@
                 <button class="text-white font-bold font-bold p-2" @click="toggleSuccess">X</button>
             </div>
 
+
             <!-- Modal ajouter d'annonce -->
-            <form class="absolute top-10 bg-indigo-100 w-full p-10 modal" v-show="modalOpen"
-                @submit.prevent="handleSubmit">
-                <div>
-                    <button @click.prevent="toggleModal()"
-                        class="p-2 text-xl font-bold text-black absolute right-5 top-5">X</button>
-                </div>
-                <h2 class="text-3xl text-center mb-5 font-bold">Ajouter une annonce</h2>
-                <div class="flex flex-col mb-4">
-                    <label for="" class="text-lg font-semibold">Titre de votre annonce</label>
-                    <input v-model="newItem.title" type="text" placeholder="Mon titre"
-                        class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-indigo-100">
-                </div>
+          <form
+              class="absolute top-10 bg-indigo-100 w-full p-10"
+              v-show="modalOpen"
+              @submit.prevent="handleSubmit">
+            <div>
+              <button
+                  @click.prevent="toggleModal()"
+                  class="p-2 text-xl font-bold text-indigo-500 absolute right-5 top-5">X</button>
+            </div>
+            <h2 class="text-3xl text-center mb-5 font-bold">Ajouter un article</h2>
+            <div class="flex flex-col mb-4">
+              <label for="" class="text-lg font-semibold">Titre de l'article</label>
+              <input
+                  v-model="newItem.title"
+                  type="text"
+                  placeholder="Mon super titre"
+                  class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-indigo-100">
+            </div>
 
-                <div class="flex flex-col mb-4">
-                    <label for="" class="text-lg font-semibold">Sommaire</label>
-                    <input v-model="newItem.summary" type="text" placeholder="Mon super titre"
-                        class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-indigo-100">
-                </div>
+            <div class="flex flex-col mb-4">
+              <label for="" class="text-lg font-semibold">Sommaire</label>
+              <input
+                  v-model="newItem.summary"
+                  type="text"
+                  placeholder="Mon super titre"
+                  class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-indigo-100">
+            </div>
+            <div class="flex flex-col mb-4">
+              <label for="" class="text-lg font-semibold">Contenu de l'article</label>
+              <textarea
+                  v-model="newItem.content"
+                  type="text"
+                  rows="13"
+                  placeholder="Mon super titre"
+                  class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-indigo-100"></textarea>
+            </div>
 
-                <div class="flex flex-col mb-4">
-                    <label for="" class="text-lg font-semibold">Contenu de votre annonce</label>
-                    <textarea v-model="newItem.content" type="text" rows="13" placeholder="Mon super titre"
-                        class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-indigo-100"></textarea>
-                </div>
+            <div class="flex flex-col mb-4">
+              <label for="" class="text-lg font-semibold">Categorie</label>
+              <select
+                  v-model="newItem.category"
+                  class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-indigo-100">
+                <option value="Informatique" selected> Informatique</option>
+                <option value="Vetement"> Vetement</option>
+                <option value="Voiture"> Voiture</option>
+                <option value="Outillages"> Outillage</option>
+              </select>
+            </div>
 
-                <div class="flex flex-col mb-4">
-                    <label for="" class="text-lg font-semibold">Categorie</label>
-                    <select v-model="newItem.category"
-                        class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-indigo-100">
-                        <option value="Programmning" selected> Informatique</option>
-                        <option value="Design"> Vetement</option>
-                        <option value="Politics"> Voituure</option>
-                        <option value="Cuisine"> Outillage</option>
-                    </select>
-                </div>
+            <div class="flex flex-col mb-4">
+              <label for="" class="text-lg font-semibold">Auteur</label>
+              <input
+                  v-model="newItem.author"
+                  type="text" placeholder="Mon super titre"
+                  class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-indigo-100">
+            </div>
 
-                <div class="flex flex-col mb-4">
-                    <label for="" class="text-lg font-semibold">Auteur</label>
-                    <input v-model="newItem.author" type="text" placeholder="Mon super titre"
-                        class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-indigo-100">
-                </div>
+            <div class="flex flex-col mb-4">
+              <label for="" class="text-lg font-semibold">Image</label>
+              <input
+                  v-model="newItem.image"
+                  type="text" placeholder="copier l'url de l'image"
+                  class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-indigo-100">
+            </div>
 
-                <div class="flex flex-col mb-4">
-                    <label for="" class="text-lg font-semibold">Image</label>
-                    <input v-model="newItem.image" type="text" placeholder="copier l'url de l'image"
-                        class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-indigo-100">
-                </div>
-
-                <button class=" p-4 my-5 text-white" type="submit">Valider</button>
-            </form>
+            <button class="bg-slate-800 p-4 my-5 text-white" type="submit">Valider</button>
+          </form>
             <!-- Fin de formulaire  -->
 
 
@@ -70,15 +88,12 @@
             <div class="my-10 lg:flex justify-between items-center block">
                 <div>
                     <h2 class="text-2xl font-semibold mb-2 text-cyan-900">Tous nos annonces</h2>
-                    <div class="h-1 w-60 bg-cyan-900 rounded"></div>
                 </div>
 
                 <button @click="toggleModal"
                     class="text-xl py-3 px-5 bg-green-900 mt-5 font-semibold text-white mb-7 lg:mt-0 mt-3 ">
                     Ajouter une annoce
                 </button>
-
-
             </div>
             <!--Formuaire de recherche -->
 
@@ -93,10 +108,12 @@
                     <select v-model="categoryFilter"
                          class=" flex gap-10 mt-2 border-cyan-900 m-8 border-2 focus:border-orange-400 focus:outline-none lg:w-1/5 text-cyan-900 w-full px-8 py-1">
                         <option value="" selected disabled default>Selectionner une categorie</option>
+                        <option value="Informatique" selected> Informatique</option>
+                        <option value="Vetement"> Vétement</option>
                         <option value="Programmning" selected> Informatique</option>
                         <option value="Vetement"> Véement</option>
                         <option value="Outillages"> Outillages</option>
-                        <option value="voiture"> Voiture</option>
+                        <option value="Voiture"> Voiture</option>
                     </select>
                     <button v-if="search.length > 0 || categoryFilter.length > 0"
                         class="bg-stone-300 text-cyan-300 text-xl font-bold" @click.prevent="btnResetForm">Retour</button>
@@ -200,5 +217,7 @@ export default {
 }
 </script>
 <style >
-
+.modal {
+  box-shadow: 0 0 0 50vmax rgba(0,0,0,.5);
+}
 </style>
