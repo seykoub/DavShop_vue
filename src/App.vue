@@ -1,33 +1,16 @@
 <template>
-  <div id="app" class="bg-emerald-50">
-
+  <div id="app" class="bg-emerald-50 ">
     <div class="flex flex-col justify-between">
-  
-    
-  
-
-
-
          <!-- MENU -->
     <Header :titre="siteTitre" />
-
     </div>
-
-    <div class="container mx-auto">
+    <div class="container mx-auto min-vh-100">
       <router-view>
       </router-view>
-
     </div>
-    
-  
       <Footer/>
-   
-    
-
-       
   </div>
 </template>
-
 <script>
 import Header from '@/components/Header.vue';
 import Footer from '@/components/Footer.vue';

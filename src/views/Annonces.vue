@@ -74,7 +74,7 @@
                 </div>
 
                 <button @click="toggleModal"
-                    class="text-xl py-3 px-5 bg-cyan-500 mt-5 font-semibold text-black mb-7 lg:mt-0 mt-3 ">
+                    class="text-xl py-3 px-5 bg-green-900 mt-5 font-semibold text-white mb-7 lg:mt-0 mt-3 ">
                     Ajouter une annoce
                 </button>
 
@@ -94,7 +94,7 @@
                          class=" flex gap-10 mt-2 border-cyan-900 m-8 border-2 focus:border-orange-400 focus:outline-none lg:w-1/5 text-cyan-900 w-full px-8 py-1">
                         <option value="" selected disabled default>Selectionner une categorie</option>
                         <option value="Programmning" selected> Informatique</option>
-                        <option value="mode"> Véement</option>
+                        <option value="Vetement"> Véement</option>
                         <option value="Outillages"> Outillages</option>
                         <option value="voiture"> Voiture</option>
                     </select>

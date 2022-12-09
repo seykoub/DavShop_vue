@@ -1,6 +1,7 @@
-<template>
-  <header class="container mx-auto flex justify-between items-center p-4 border-b-2 border-green-900 relative" >
-      <h3 class="text-2xl font-bold uppercase text-green-900">Davshop</h3>
+<template class="">
+  <header class=" w-full  bg-green-900" >
+    <div class="container flex justify-between items-center p-4">
+      <h3 class="text-2xl font-bold uppercase text-white">Davshop</h3>
 
 
     <!-- navigation mobile -->
@@ -18,22 +19,22 @@
   </button>
 <!-- navigation desktop -->
 
-      <nav class="justify-between lg:flex hidden ">
+      <nav class="justify-between lg:flex hidden">
         <ul class="flex gap-10 mt-2">
 
-          <li class="text-green-900  text-lg ">
+          <li class="text-white  text-lg ">
             <router-link to="/" class-active="active" exact>
               Accueil
             </router-link>
           </li>
 
-          <li class="text-green-900  text-lg  ">
+          <li class="text-white  text-lg  ">
             <router-link to="/Annonces" class-active="active" exact>
               Nos annonces
             </router-link>
           </li>
 
-          <li class="text-green-900  text-lg ">
+          <li class="text-white  text-lg ">
             <router-link to="ItemDetails" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
               class-active="active" aria-expanded="false">
               Mon compte
@@ -44,13 +45,13 @@
             </ul> 
           </li>
 
-          <li class="text-green-900  text-lg ">
+          <li class="text-white  text-lg ">
             <router-link to="/Contact" class-active="active" exact>
               Contact
             </router-link>
           </li>
 
-          <li class="text-green-900 text-lg">
+          <li class="text-white text-lg">
             <router-link to="/Propos" class-active="active" exact>
               À propos
             </router-link>
@@ -101,10 +102,11 @@
 
         </ul>
       </nav>
-    
+    </div>
 
   </header>
 </template>
+<br>
 <script>
 
 
