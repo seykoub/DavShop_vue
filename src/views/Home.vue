@@ -6,8 +6,8 @@
     <!-- Presentation rapide -->
       <div class="w-full lg:w-1/2">
         <h1 class="text-green-900 text-5xl font-bold mb-5">Site de don, d'achat et de vente entre particulier</h1>
-        <p class="text-black text-2xl">Chez DAVshop, vous pouvez faire un DON de vos objets qui n'ont plus d'utilités à vos yeux au plus nécéssiteux. Vous pouvez ACHETER les articles qui sont mises en vente par des particuliers via Davshop.
-          Vous pouvez aussi VENDRE vos articles à des particuliers. Il vous suffit de négocier avec votre acheteur via Davshop.
+        <p class="text-black text-2xl">Chez DAVshop, vous pouvez faire un don de vos objets qui n'ont plus d'utilités à vos yeux au plus nécéssiteux. Vous pouvez acheter les articles qui sont mises en vente par des particuliers via Davshop.
+          Vous pouvez aussi vendre vos articles à des particuliers. Il vous suffit de négocier avec votre acheteur via Davshop.
           Rendez-vous la vie facile avec Davshop</p>
         <button class="text-xl py-3 px-5 bg-green-900 mt-5 font-semibold text-white mb-7 lg:mb-0" >
           <router-link to="/contact">Nous contacter</router-link>
@@ -19,6 +19,9 @@
   </section>
     <br>
     <section>
+      <div class="my-10 lg:flex justify-between items-center block">
+        <h3 class="text-2xl font-semibold mb-2 border-b-2 border-black">Nos derniers annonces</h3>
+      </div>
     <!--Carroussel-->
     <div class="object-cover pt-4 bg-green-50">
       <hooper :settings="hooperSettings"  style="height: 600px" >
@@ -28,6 +31,11 @@
 
       </hooper>
     </div>
+      <div class="my-10 lg:flex justify-between items-center block">
+        <a href="Annonces" class="text-2xl font-semibold mb-2 border-b-2 border-black">Consulter nos annonces</a>
+        <a href="Annonces" class="text-2xl font-semibold mb-2 border-b-2 border-black">Ajouter une annonce</a>
+
+      </div>
   </section>
   <!--Card étapes-->
   <section>
