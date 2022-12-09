@@ -25,7 +25,7 @@
 
 <script>
 
-import { annonces } from '../Data';
+import { posts } from '../Data';
 import BackButton from '../components/State/BackButton.vue'
 
 export default {
@@ -40,7 +40,7 @@ export default {
     },
     async mounted() {
         const { id } = this.$route.params
-        this.currentItem = annonces.filter((p) => {
+        this.currentItem = posts.filter((p) => {
             return p.id === id;
         })
     }
