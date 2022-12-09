@@ -1,5 +1,5 @@
 <template>
-    <div class="flex w-96 flex-col justify-center bg-cyan-900  shadow-lg shadow-slate-300/60" @click="goToItem(item.id)">
+    <div class="flex w-96 flex-col justify-center bg-green-900  shadow-lg shadow-slate-300/60" @click="goToItem(item.id)">
     <!-- img -->
     <img
       class="aspect-video w-96 object-cover object-center"

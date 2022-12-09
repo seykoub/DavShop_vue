@@ -7,6 +7,8 @@ import Connexion from '../views/Connexion'
 import Propos from '../views/Propos.vue'
 import ItemDetails from'../views/ItemDetails.vue'
 import VueRouter from 'vue-router'
+import Forgotpassword from '../views/Forgotpassword.vue'
+import Renewpassword from '../views/Renewpassword.vue'
 
 
 // indinque a Vuejs qu'il peux utiliser le router partout 
@@ -20,6 +22,8 @@ const routes = [
     {path: '/Contact', name: 'Contact', component: Contact },
     {path: '/ItemDetails', name:'ItemDetails', component: ItemDetails},
     {path: '/Propos', name : "Propos", component:Propos},
+    {path: '/Forgotpassword', name: "Forgotpassword", component: Forgotpassword},
+    {path: '/Renewpassword', name: "Renewpassword", component: Renewpassword},
     //{path: '*', name: 'NotFound', component: NotFound}
 ]
 
