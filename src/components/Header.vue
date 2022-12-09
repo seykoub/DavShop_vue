@@ -38,10 +38,10 @@
               class-active="active" aria-expanded="false">
               Mon compte
             </router-link>
-            <ul class="dropdown-menu text-green-900  text-lg">
+             <ul class="dropdown-menu text-green-900  text-lg">
               <li><router-link to="Connexion" class="dropdown-item bg-green-900 text-white">Se connecter</router-link></li>
-              <li><router-link to="Inscription" class="dropdown-item bg-green-900 text-white">Création de compte</router-link></li>
-            </ul>
+               <li><router-link to="Inscription" class="dropdown-item bg-green-900 text-white">Création de compte</router-link></li> 
+            </ul> 
           </li>
 
           <li class="text-green-900  text-lg ">
