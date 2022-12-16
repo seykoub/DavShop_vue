@@ -1,7 +1,7 @@
 <template >
     <div>
         
-        <main class="flex justify-center" v-if="loading">
+        <main class="flex justify-center" v-if="loading && !annonces">
             <Spinner />
         </main>
 
@@ -55,7 +55,7 @@
               <label for="" class="text-lg font-semibold">Categorie</label>
               <select
                   v-model="newItem.category"
-                  class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-indigo-100">
+                  class="leading-none text-gray-800 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-indigo-100">
                 <option value="Informatique" selected> Informatique</option>
                 <option value="Vetement"> Vetement</option>
                 <option value="Voiture"> Voiture</option>
@@ -87,7 +87,7 @@
             <!-- Intro -->
             <div class="my-10 lg:flex justify-between items-center block">
                 <div>
-                    <h2 class="text-2xl font-semibold mb-2 text-cyan-900">Tous nos annonces</h2>
+                    <h2 class="text-2xl font-semibold mb-2 text-black border-b-4 border-orange-400 rounded">Tous nos annonces</h2>
                 </div>
 
                 <button @click="toggleModal"
@@ -100,14 +100,14 @@
             <form>
                 <div class="lg:flex items-center block gap-6">
                     <input v-model="search"
-                         class="flex gap-10 mt-2 border-cyan-900 m-8 border-2 focus:border-orange-400 focus:outline-none lg:w-1/5 text-cyan-900 w-full px-8 py-1"
+                         class="flex gap-10 mt-2 border-gray-300 text-black m-8 border-2 focus:border-orange-400 focus:outline-none lg:w-1/5 w-full px-8 py-1 rounded"
                         type="text" placeholder="Tapez votre recherche..">
                        
                     
 
                     <select v-model="categoryFilter"
-                         class=" flex gap-10 mt-2 border-cyan-900 m-8 border-2 focus:border-orange-400 focus:outline-none lg:w-1/5 text-cyan-900 w-full px-8 py-1">
-                        <option value="" selected disabled default>Selectionner une categorie</option>
+                         class=" flex gap-10 mt-2 border-gray-300 m-8 border-2 focus:border-orange-400 focus:outline-none lg:w-1/5 text-gray-800 w-full px-8 py-1 rounded">
+                        <option value="" selected disabled default class= "text-gray-800">Selectionner une categorie</option>
                         <option value="Informatique" selected> Informatique</option>
                         <option value="Vetement"> Vétement</option>
                         <option value="Programmning" selected> Informatique</option>
@@ -116,37 +116,38 @@
                         <option value="Voiture"> Voiture</option>
                     </select>
                     <button v-if="search.length > 0 || categoryFilter.length > 0"
-                        class="bg-stone-300 text-cyan-300 text-xl font-bold" @click.prevent="btnResetForm">Retour</button>
+                        class="bg-green-800 text-black text-xl font-bold" @click.prevent="btnResetForm">Retour</button>
                 </div>
             </form>
 
             <!-- Tout les articles -->
-            <p v-show="filteredAnnonces.length > 0" class="text-lg font-semibold text-center my-0 text-cyan-900">Résultats : <span
-                    class="text-o-300">{{ filteredAnnonces.length }}</span></p>
+            <p v-show="filteredAnnonces.length > 0" class="text-lg font-semibold text-center my-0 text-black">Résultats : <span
+                    class="">{{ filteredAnnonces.length }}</span></p>
             <div class=' my-20  gap-7 sm:grid md:grid-cols-2 xl:grid-cols-4' v-if="filteredAnnonces.length > 0">
                 <Annonce v-for="item in filteredAnnonces" :key="item.id" :item="item" />
             </div>
 
-            <h3 v-else class="text-center text-cyan-500 text-2xl my-10">Pas de résultat</h3>
+            <h3 v-else class="text-center text-black text-2xl my-10">Pas de résultat</h3>
         </main>
 
     </div>
 </template>
 <script>
-import { posts } from '../Data';
 import Annonce from '../components/Card/Annonce.vue';
-import Spinner from '../components/Spinner.vue'
+import Spinner from '../components/Spinner.vue';
+import axios from 'axios'
+
 export default {
     name: 'Annonces',
     components: { Annonce, Spinner },
     data() {
         return {
-            annonces: posts,
+            annonces: [],
             search: "",
             categoryFilter: "",
             modalOpen: false,
             newItem: {
-                id: Math.floor(Math.random() * 100),
+                id: 0,
                 title: '',
                 summary: '',
                 content: '',
@@ -160,6 +161,9 @@ export default {
             loading: false
         }
     },
+  mounted(){
+      this.getAnnonces()
+  },
     methods: {
         btnResetForm() {
             this.search = '';
@@ -171,25 +175,38 @@ export default {
         toggleSuccess() {
             this.success = !this.success
         },
-        handleSubmit() {
+      async getAnnonces(){
+          this.loading = true
+        await axios.get("http://localhost:3000/posts")
+        .then((res) => this.annonces = res.data)
+        .catch((e) => console.log(e))
+        .finally(() => this.loading= false)
+      },
+        async handleSubmit() {
             this.loading = true
-            setTimeout(() => {
-                this.annonces.push(this.newItem)
+          await axios.post("http://localhost:3000/posts", this.newItem)
+              .then(() => {
                 this.toggleModal()
                 this.success = true
                 this.loading = false
                 this.newItem = {
-                    id: Math.floor(Math.random() * 100),
-                    title: '',
-                    summary: '',
-                    content: '',
-                    image: '',
-                    author: '',
-                    category: '',
-                    date: '12/02/23'
+                  id: Math.floor(Math.random() * 100),
+                  title: '',
+                  summary: '',
+                  content: '',
+                  image: '',
+                  author: '',
+                  category: '',
+                  date: '12/02/23'
                 }
+              })
 
-            }, 2000)
+            /*setTimeout(() => {
+                this.annonces.push(this.newItem)
+
+
+            }, 2000)*/
+
         }
     },
 

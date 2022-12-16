@@ -10,7 +10,6 @@ import VueRouter from 'vue-router'
 import Forgotpassword from '../views/Forgotpassword.vue'
 import Renewpassword from '../views/Renewpassword.vue'
 
-
 // indinque a Vuejs qu'il peux utiliser le router partout 
 Vue.use(VueRouter);
 const routes = [

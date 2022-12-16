@@ -1,7 +1,7 @@
 <template class="">
-  <header class=" w-full  bg-green-900" >
+  <header class=" w-full" >
     <div class="container flex justify-between items-center p-4">
-      <h3 class="text-2xl font-bold uppercase text-white">Davshop</h3>
+      <h3 class="text-2xl font-bold uppercase text-green-900 border-b-4 rounded border-cyan-900 "><span class="text-5xl">Dav</span><span class="text-orange-400">shop</span></h3>
 
 
     <!-- navigation mobile -->
@@ -20,21 +20,21 @@
 <!-- navigation desktop -->
 
       <nav class="justify-between lg:flex hidden">
-        <ul class="flex gap-10 mt-2">
+        <ul class="flex gap-10 mt-2 border-b-4 border-orange-400 rounded">
 
-          <li class="text-white  text-lg ">
+          <li class="text-cyan-900 text-lg ">
             <router-link to="/" class-active="active" exact>
               Accueil
             </router-link>
           </li>
 
-          <li class="text-white  text-lg  ">
+          <li class="text-cyan-900   text-lg  ">
             <router-link to="/Annonces" class-active="active" exact>
               Nos annonces
             </router-link>
           </li>
 
-          <li class="text-white  text-lg ">
+          <li class="text-cyan-900    text-lg ">
             <router-link to="ItemDetails" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
               class-active="active" aria-expanded="false">
               Mon compte
@@ -45,13 +45,13 @@
             </ul> 
           </li>
 
-          <li class="text-white  text-lg ">
+          <li class="text-cyan-900   text-lg ">
             <router-link to="/Contact" class-active="active" exact>
               Contact
             </router-link>
           </li>
 
-          <li class="text-white text-lg">
+          <li class="text-cyan-900  text-lg">
             <router-link to="/Propos" class-active="active" exact>
               À propos
             </router-link>

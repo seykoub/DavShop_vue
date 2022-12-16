@@ -16,8 +16,8 @@
       class="text-sm tracking-tight font-light text-white leading-6">
      {{ item.content| truncate(200) }}
      </p>
+      <hr>
     </div>
-    
   </div>
 </template>
 <script>
