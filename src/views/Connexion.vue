@@ -82,7 +82,7 @@
 </template>
 <script>
 //import Spinner from '@/components/Spinner.vue'
-import axios from "axios";
+
 export default {
 name : 'Connexion',
 //components: {Spinner},
@@ -93,22 +93,7 @@ name : 'Connexion',
   // },
   methods: {
     login() {
-      if (this.credentials.email && this.credentials.password) {
-        axios.post("http://localhost:3000/login", this.credentials)
-            .then((res) => {
-              this.credentials = {
-                email: '',
-                password:'',
-              },
-                  this.user = res.data.user,
-                  console.log(this.$store)
-              this.$store.dispatch("user", this.user)
-              this.$router.push('/Annonces')
-
-            })
-      } else {
-        console.log("une erreur est survenu")
-      }
+      this.$store.dispatch('login', this.credentials)
 
     }
   },

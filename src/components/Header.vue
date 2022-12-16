@@ -39,10 +39,15 @@
               class-active="active" aria-expanded="false">
               Mon compte
             </router-link>
-             <ul class="dropdown-menu text-green-900  text-lg">
+             <ul class="dropdown-menu text-green-900  text-lg" v-if="!currentUser">
               <li><router-link to="Connexion" class="dropdown-item bg-green-900 text-white">Se connecter</router-link></li>
                <li><router-link to="Inscription" class="dropdown-item bg-green-900 text-white">Création de compte</router-link></li> 
-            </ul> 
+            </ul>
+            <ul class="dropdown-menu text-green-900  text-lg" v-else>
+              <li><router-link to="Connexion" class="dropdown-item bg-green-900 text-white">Profil</router-link></li>
+              <li><router-link to="Inscription" class="dropdown-item bg-green-900 text-white">Mes annonces</router-link></li>
+              <li><button @click="logout" class="dropdown-item bg-green-900 text-white">Deconnexion</button></li>
+            </ul>
           </li>
 
           <li class="text-cyan-900   text-lg ">
@@ -106,33 +111,33 @@
 
   </header>
 </template>
-<br>
 <script>
-
-
 export default {
     name: "Header",
     data() {
         return {
-            isMobile: false
-            /* links: [
-                 { href: "/", nomDulien: "Accueil" },
-                  { href: "/", nomDulien: "Mon compte" },
-                   { href: "/", nomDulien: "Mon panier" },
-             ]*/
-        };
+            isMobile: false,
+          test : 'test'
+
+        }
     },
     methods: {
         showMenu() {
-        }
+        },
+      logout(){
+          this.$store.dispatch('logout')
+      }
     },
-    components: {  }
+  mounted() {
+      this.$store.dispatch('get_user')
+  },
+  computed: {
+     currentUser(){
+       return this.$store.state.user
+     }
+  },
+
 }
 </script>
 <style>
-/* .router-link-active {
-  border-bottom: 3px solid rgb(22, 78, 99);
-  color: rgb(22, 78, 99);
-  font-weight: 600;
-} */
 </style>

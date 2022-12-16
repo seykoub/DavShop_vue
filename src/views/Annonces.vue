@@ -90,7 +90,7 @@
                     <h2 class="text-2xl font-semibold mb-2 text-black border-b-4 border-orange-400 rounded">Tous nos annonces</h2>
                 </div>
 
-                <button @click="toggleModal"
+                <button v-if="currentUser" @click="toggleModal"
                     class="text-xl py-3 px-5 bg-green-900 mt-5 font-semibold text-white mb-7 lg:mt-0 mt-3 ">
                     Ajouter une annoce
                 </button>
@@ -229,7 +229,10 @@ export default {
                 allAnnonces = result;
             }
             return allAnnonces;
-        }
+        },
+      currentUser(){
+        return this.$store.state.user
+      }
     },
 }
 </script>
