@@ -1,88 +1,98 @@
 <template>
 
-    <main>
+  <main>
 
-        <!-- <main> <Spinner  v-if="loading"/></main> -->
-        <section class="h-screen">
-            <div class="px-6 h-full text-gray-800">
-                <div class="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6">
-                    <div class="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0">
-                        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-                            class="w-full" alt="Sample image" />
-                    </div>
-                    <div class="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
-                        <form>
-                            <div class="flex flex-row items-center justify-center lg:justify-start">
-                                <p class="text-lg mb-0 mr-4">Réinitialiser mot de passe</p>
-
-
-
-
-
-                            </div>
-
-
-
-                            <!-- Email input -->
-                            <div class="mb-6">
-                                <input type="text"
-                                    class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                                    id="exampleFormControlInput2" placeholder="Adresse email" />
-                            </div>
-
-                            <!-- Password input -->
+    <!-- <main> <Spinner  v-if="loading"/></main> -->
+    <section class="h-screen">
+      <div class="px-6 h-full text-gray-800">
+        <div class="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6">
+          <div class="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0">
+            <img src="https://images-ext-2.discordapp.net/external/g1b_5aFltb-uzVQF8tOluaRXLPqrOICcEjjicV1Pk5E/%3Fw%3D740%26t%3Dst%3D1671482817~exp%3D1671483417~hmac%3D101d9357cdf7bba20162bb756a94a00cd95525d5e6c9298e4e48292d67098b05/https/img.freepik.com/vecteurs-libre/illustration-du-concept-connexion_114360-739.jpg?width=609&height=609"
+                 class="w-full" alt="Sample image" />
+          </div>
+          <div class="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
+            <form @submit.prevent="resetPassword">
+              <div class="flex flex-row items-center justify-center lg:justify-start">
+                <p class="text-lg mb-0 mr-4">Réinitialiser mot de passe</p>
 
 
 
 
-                            <div class="text-center lg:text-left">
-                                <button type="button"
-                                    class="inline-block px-7 py-3 bg-blue-600 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
-                                    <router-link to="/Renewpassword">Continuer</router-link> 
-                                </button>
 
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </section>
+              </div>
 
-    </main>
+
+
+              <!-- Email input -->
+              <div class="mb-6">
+                <input type="email"
+                       class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+                       id="exampleFormControlInput2" placeholder="Adresse email"
+                       v-model="email"
+                       required
+                />
+              </div>
+
+              <!-- Envoyer le courriel de réinitialisation du mot de passe -->
+
+
+
+
+              <div class="text-center lg:text-left">
+                <button type="submit"
+                        class="inline-block px-7 py-3  bg-orange-400 hover:bg-green-900 box-shadow-green-900 text-white font-medium text-sm leading-snug uppercase rounded shadow-md hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
+                  continuer
+                </button>
+
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
 </template>
 <script>
+import axios from 'axios'
 
 export default {
-    name: 'Forgotpassword',
-    // components: {Spinner},
-    // computed: {
-    //   loading() {
-    //     return this.$store.getters.loading
-    //   }
-    // },
-    methods: {
-        login() {
-            if (this.credentials.email && this.credentials.password) {
-                this.$store.dispatch("login", this.credentials);
-            } else {
-                console.log("une erreur est survenu")
-            }
-
-        }
-    },
-    data() {
-        return {
-            credentials: {
-                email: '',
-                password: '',
-                loading: false
-            }
-        }
-
+  data() {
+    return {
+      email: ''
     }
+  },
+  methods: {
+    /*Cette méthode envoie une requête HTTP au serveur pour générer un jeton
+    de réinitialisation de mot de passe et envoyer un e-mail à l'utilisateur.
+    */
+    async resetPassword() {
+      try {
+        // Send a request to the server to generate a password reset token
+        await axios.get('http://localhost:3000/users?email='+this.email)
+            .then(response => {
+              const list = response.data;
+              if(list.length === 1)
+              {
+                this.$store.dispatch("get_recup_user",list[0])
+              }
+
+            });
+        // Send an email to the user with the password reset link
+        // ...
+      } catch (error) {
+        // Handle error
+      }
+    }
+  }
 
 }
 </script>
 <style >
-
+button {
+  color: #eee;
+  font: inherit;
+  box-shadow: 4px 4px darkgreen;
+  transition: all 0.2s ease;
+}
 </style>

@@ -13,7 +13,7 @@
      class="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0"
    >
      <img
-       src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+       src="https://images-ext-2.discordapp.net/external/g1b_5aFltb-uzVQF8tOluaRXLPqrOICcEjjicV1Pk5E/%3Fw%3D740%26t%3Dst%3D1671482817~exp%3D1671483417~hmac%3D101d9357cdf7bba20162bb756a94a00cd95525d5e6c9298e4e48292d67098b05/https/img.freepik.com/vecteurs-libre/illustration-du-concept-connexion_114360-739.jpg?width=609&height=609"
        class="w-full"
        alt="Sample image"
      />
@@ -21,11 +21,10 @@
    <div class="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
      <form    @submit.prevent="addUser">
 
-       <h1 class="text-center text-2xl uppercase font-bold ">Inscription</h1>
+       <h1 class="text-center text-green-900 text-2xl uppercase font-bold ">Inscription  <span class="text-2xl">Dav</span><span class="text-orange-400">shop</span></h1>
     <br>
     
         <div class="flex flex-col ">
-          <label class=" text-lg font-semibold">Nom:</label>
           <input
               v-model="user.nom"
           
@@ -35,7 +34,6 @@
               id="exampleFormControlInput2" required>
         </div><br>
         <div class="flex flex-col">
-          <label class="text-lg font-semibold" for="">Prénom:</label>
           <input
               v-model="user.prenom"
               type="text"
@@ -44,7 +42,6 @@
               id="exampleFormControlInput2" required>
         </div><br>
         <div class="flex flex-col">
-          <label class="text-lg font-semibold">Email:</label>
           <input
               v-model="user.email"
               type="email"
@@ -53,7 +50,6 @@
               id="exampleFormControlInput2" required>
         </div><br>
         <div class="flex flex-col">
-          <label class="text-lg font-semibold" for="">Mot de passe:</label>
           <input
               v-model="user.password"
               type="password"
@@ -62,7 +58,6 @@
               id="exampleFormControlInput2"  required>
         </div><br>
         <div class="flex flex-col">
-          <label class="text-lg font-semibold" for="">Téléphone:</label>
           <input
               v-model="user.telephone"
 
@@ -73,7 +68,7 @@
         </div><br>
 
         <div class="flex justify-center">
-          <button class=" bg-green-900 hover:bg-green-600  text-black px-4 py-2 mt-5" type="submit">S'inscrire</button>
+          <button class=" bg-orange-400 hover:bg-green-900  text-white px-4 py-2 mt-5" type="submit">S'inscrire</button>
     </div>
      </form>
    </div>

@@ -15,13 +15,13 @@
 
             <!-- Modal ajouter d'annonce -->
           <form
-              class="absolute top-10 bg-indigo-100 w-full p-10"
+              class="absolute top-10 bg-white w-full p-10"
               v-show="modalOpen"
               @submit.prevent="handleSubmit">
             <div>
               <button
                   @click.prevent="toggleModal()"
-                  class="p-2 text-xl font-bold text-indigo-500 absolute right-5 top-5">X</button>
+                  class="p-2 text-xl font-bold text-white box-shadow-green bg-orange-400 hover:bg-green-900 absolute right-5 top-5">X</button>
             </div>
             <h2 class="text-3xl text-center mb-5 font-bold">Ajouter un article</h2>
             <div class="flex flex-col mb-4">
@@ -30,7 +30,7 @@
                   v-model="newItem.title"
                   type="text"
                   placeholder="Mon super titre"
-                  class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-indigo-100">
+                  class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-green-50">
             </div>
 
             <div class="flex flex-col mb-4">
@@ -38,8 +38,8 @@
               <input
                   v-model="newItem.summary"
                   type="text"
-                  placeholder="Mon super titre"
-                  class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-indigo-100">
+                  placeholder=""
+                  class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-green-50">
             </div>
             <div class="flex flex-col mb-4">
               <label for="" class="text-lg font-semibold">Contenu de l'article</label>
@@ -47,15 +47,15 @@
                   v-model="newItem.content"
                   type="text"
                   rows="13"
-                  placeholder="Mon super titre"
-                  class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-indigo-100"></textarea>
+                  placeholder=""
+                  class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-green-50"></textarea>
             </div>
 
             <div class="flex flex-col mb-4">
               <label for="" class="text-lg font-semibold">Categorie</label>
               <select
                   v-model="newItem.category"
-                  class="leading-none text-gray-800 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-indigo-100">
+                  class="leading-none text-gray-800 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-green-50">
                 <option value="Informatique" selected> Informatique</option>
                 <option value="Vetement"> Vetement</option>
                 <option value="Voiture"> Voiture</option>
@@ -67,8 +67,8 @@
               <label for="" class="text-lg font-semibold">Auteur</label>
               <input
                   v-model="newItem.author"
-                  type="text" placeholder="Mon super titre"
-                  class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-indigo-100">
+                  type="text" placeholder="nom&prenom"
+                  class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-green-50">
             </div>
 
             <div class="flex flex-col mb-4">
@@ -76,58 +76,64 @@
               <input
                   v-model="newItem.image"
                   type="text" placeholder="copier l'url de l'image"
-                  class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-indigo-100">
+                  class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-green-50">
             </div>
 
-            <button class="bg-slate-800 p-4 my-5 text-white" type="submit">Valider</button>
+            <button class="bg-orange-400 p-4 my-5 text-white" type="submit">Valider</button>
           </form>
             <!-- Fin de formulaire  -->
 
 
             <!-- Intro -->
-            <div class="my-10 lg:flex justify-between items-center block">
+           <div class="my-10 lg:flex justify-between items-center block mb-0">
                 <div>
                     <h2 class="text-2xl font-semibold mb-2 text-black border-b-4 border-orange-400 rounded">Tous nos annonces</h2>
                 </div>
 
                 <button v-if="currentUser" @click="toggleModal"
-                    class="text-xl py-3 px-5 bg-green-900 mt-5 font-semibold text-white mb-7 lg:mt-0 mt-3 ">
+                    class="text-xl py-2 px-3 bg-orange-400 hover:bg-green-900  :active: box-shadow-green-900 mt-5 font-semibold text-white mb-7 lg:mt-0 mt-3 ">
                     Ajouter une annoce
                 </button>
             </div>
             <!--Formuaire de recherche -->
 
             <form>
-                <div class="lg:flex items-center block gap-6">
+                <div class="lg:flex items-center block gap-6 mt-0">
                     <input v-model="search"
                          class="flex gap-10 mt-2 border-gray-300 text-black m-8 border-2 focus:border-orange-400 focus:outline-none lg:w-1/5 w-full px-8 py-1 rounded"
-                        type="text" placeholder="Tapez votre recherche..">
-                       
-                    
-
+                        type="text" placeholder="Tapez votre recherche.." @keyup="getAnnonces">
                     <select v-model="categoryFilter"
-                         class=" flex gap-10 mt-2 border-gray-300 m-8 border-2 focus:border-orange-400 focus:outline-none lg:w-1/5 text-gray-800 w-full px-8 py-1 rounded">
+                         class=" flex gap-10 mt-2 border-gray-300 m-8 border-2 focus:border-orange-400 focus:outline-none lg:w-1/5 text-gray-800 w-full px-8 py-1 rounded"
+                    @change="getAnnonces">
                         <option value="" selected disabled default class= "text-gray-800">Selectionner une categorie</option>
                         <option value="Informatique" selected> Informatique</option>
                         <option value="Vetement"> Vétement</option>
-                        <option value="Programmning" selected> Informatique</option>
-                        <option value="Vetement"> Véement</option>
+                        <option value="Programmning" selected> Programming</option>
                         <option value="Outillages"> Outillages</option>
                         <option value="Voiture"> Voiture</option>
                     </select>
                     <button v-if="search.length > 0 || categoryFilter.length > 0"
-                        class="bg-green-800 text-black text-xl font-bold" @click.prevent="btnResetForm">Retour</button>
+                        class="bg-orange-400 text-black text-xl font-bold" @click.prevent="btnResetForm">Retour</button>
+                  <p v-show="annonces.length > 0" class="text-lg font-semibold text-center my-0 text-orange-400">Résultats : <span
+                      class="">{{ annonces.length }}</span></p>
                 </div>
             </form>
 
             <!-- Tout les articles -->
-            <p v-show="filteredAnnonces.length > 0" class="text-lg font-semibold text-center my-0 text-black">Résultats : <span
-                    class="">{{ filteredAnnonces.length }}</span></p>
-            <div class=' my-20  gap-7 sm:grid md:grid-cols-2 xl:grid-cols-4' v-if="filteredAnnonces.length > 0">
-                <Annonce v-for="item in filteredAnnonces" :key="item.id" :item="item" />
+            <div class=' my-15  gap-7 sm:grid md:grid-cols-2 xl:grid-cols-4' v-if="annonces.length > 0">
+                <Annonce v-for="item in annonces" :key="item.id" :item="item" />
             </div>
-
             <h3 v-else class="text-center text-black text-2xl my-10">Pas de résultat</h3>
+          <p class="pagination">
+            <button @click="changePage(-1)" class="bg-orange-400 :active: box-shadox-green-900 w-20 focus:outline-none focus:ring focus:ring-green-900 mr-2">
+              Previous
+            </button>
+            {{ page }} of 3
+            <button @click="changePage(1)" class="bg-orange-400 :active: box-shadox-green-900 w-20 min-width-full focus:outline-none focus:ring focus:ring-green-900 ml-2">
+              Next
+            </button>
+          </p>
+
         </main>
 
     </div>
@@ -143,6 +149,7 @@ export default {
     data() {
         return {
             annonces: [],
+            page: 1,
             search: "",
             categoryFilter: "",
             modalOpen: false,
@@ -177,7 +184,9 @@ export default {
         },
       async getAnnonces(){
           this.loading = true
-        await axios.get("http://localhost:3000/posts")
+        let filter = this.categoryFilter ? `category=${this.categoryFilter}&` : ""
+        filter += this.search ? `title_like=${this.search}&` : ""
+        await axios.get(`http://localhost:3000/posts?${filter}_page=${this.page}&_limit=8`)
         .then((res) => this.annonces = res.data)
         .catch((e) => console.log(e))
         .finally(() => this.loading= false)
@@ -207,29 +216,21 @@ export default {
 
             }, 2000)*/
 
-        }
+        },
+      fetchData() {
+        this.json
+            .get(" http://localhost:3000/posts")
+            .then(({ data }) => {
+              this.annonces = data;
+            });
+      },
+      changePage(dir) {
+        this.page += dir;
+        this.getAnnonces()
+      },
     },
 
     computed: {
-        filteredAnnonces() {
-            let allAnnonces = [...this.annonces];
-            if (this.categoryFilter.length > 0) {
-                const result = this.annonces.filter((p) => {
-                    return p.category.match(this.categoryFilter);
-                });
-                allAnnonces = result;
-            }
-
-            if (this.search.length > 0) {
-                const result = allAnnonces.filter((p) => {
-                    return (
-                        p.title.toLowerCase().match(this.search.toLowerCase()) ||
-                        p.content.match(this.search.toLowerCase()));
-                });
-                allAnnonces = result;
-            }
-            return allAnnonces;
-        },
       currentUser(){
         return this.$store.state.user
       }
@@ -237,7 +238,19 @@ export default {
 }
 </script>
 <style >
-.modal {
-  box-shadow: 0 0 0 50vmax rgba(0,0,0,.5);
+
+.pagination {
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
+button {
+  color: #eee;
+  font: inherit;
+  box-shadow: 4px 4px darkgreen;
+  transition: all 0.2s ease;
+}
+
 </style>

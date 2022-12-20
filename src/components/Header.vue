@@ -1,7 +1,7 @@
 <template class="">
   <header class=" w-full" >
     <div class="container flex justify-between items-center p-4">
-      <h3 class="text-2xl font-bold uppercase text-green-900 border-b-4 rounded border-cyan-900 "><span class="text-5xl">Dav</span><span class="text-orange-400">shop</span></h3>
+      <h3 class="text-2xl font-bold uppercase text-green-900 border-b-4 rounded border-orange-400 "><span class="text-5xl">Dav</span><span class="text-orange-400">shop</span></h3>
 
 
     <!-- navigation mobile -->
@@ -44,8 +44,7 @@
                <li><router-link to="Inscription" class="dropdown-item bg-green-900 text-white">Création de compte</router-link></li> 
             </ul>
             <ul class="dropdown-menu text-green-900  text-lg" v-else>
-              <li><router-link to="Connexion" class="dropdown-item bg-green-900 text-white">Profil</router-link></li>
-              <li><router-link to="Inscription" class="dropdown-item bg-green-900 text-white">Mes annonces</router-link></li>
+              <li><router-link to="Connexion" class="dropdown-item bg-green-900 text-white">Mes annonces</router-link></li>
               <li><button @click="logout" class="dropdown-item bg-green-900 text-white">Deconnexion</button></li>
             </ul>
           </li>

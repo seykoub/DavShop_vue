@@ -1,74 +1,85 @@
 <template>
-    <div class="w-full ">
-        <div class="max-w-5xl mx-auto px-6 sm:px-6 lg:px-8 mb-12 text-cyan-900">
-            <div class=" mt-6 border-2 border-cyan-500 w-full shadow shadow-lg p-8 sm:p-12">
-                <p class="text-3xl font-bold leading-7 text-center text-cyan-500! mb-4">Nous Contacter </p>
+  <main>
 
-                <p class="text-emerald-600 text-lg" v-show="success">Votre demande à bien été reçu !</p>
+    <main>
+      <!--<Spinner  v-if="loading"/>-->
+    </main>
+    <section class="h-screen">
+      <div class="px-6 h-full text-gray-800">
+        <div
+            class="flex xl:justify-center lg:justify-between justify-center items-center flex-wrap h-full g-6"
+        >
+          <div
+              class="grow-0 shrink-1 md:shrink-0 basis-auto xl:w-6/12 lg:w-6/12 md:w-9/12 mb-12 md:mb-0"
+          >
+            <img
+                src="https://images-ext-2.discordapp.net/external/g1b_5aFltb-uzVQF8tOluaRXLPqrOICcEjjicV1Pk5E/%3Fw%3D740%26t%3Dst%3D1671482817~exp%3D1671483417~hmac%3D101d9357cdf7bba20162bb756a94a00cd95525d5e6c9298e4e48292d67098b05/https/img.freepik.com/vecteurs-libre/illustration-du-concept-connexion_114360-739.jpg?width=609&height=609"
+                class="w-full"
+                alt="Sample image"
+            />
+          </div>
+          <div class="xl:ml-20 xl:w-5/12 lg:w-5/12 md:w-8/12 mb-12 md:mb-0">
+            <form    @submit.prevent="sendEmail">
 
-                <form
-                @submit.prevent="sendEmail"
-                >
-                    <div class="md:flex items-center mt-12">
-                        <div class="w-full md:w-1/2 flex flex-col">
-                            <label class="font-semibold leading-none">Nom <sup class="text-red-700">*</sup></label>
-                            <input type="text" 
-                            v-model="nom" 
-                            name="nom" 
-                            placeholder="votre nom"
-                                class="leading-none border-2 border-cyan-900 text-slate-900 p-3 ml-2 focus:outline-none mt-4 border-b-2 " /><br>
-                        </div>
-                        <div class="w-full md:w-1/2 flex flex-col">
-                            <label class="font-semibold leading-none">prénom <sup class="text-red-700">*</sup></label>
-                            <input type="text"
-                            v-model="prenom" 
-                            name="prenom" 
-                            placeholder="votre prenom"
-                                class="leading-none bg-white-100 border-2 border-cyan-900 text-slate-900 p-3 ml-2 focus:outline-none focus:border-green-500 mt-4 border-b-2 " /><br>
-                        </div>
-                    </div>
+              <h1 class="text-center text-green-900 text-2xl uppercase font-bold ">Contact <span class="text-2xl">Dav</span><span class="text-orange-400">shop</span></h1>
+              <br>
 
-                    <div class="md:flex items-center mt-8">
-                        <div class="w-full flex flex-col">
-                            <label class="font-semibold leading-none">Email<sup class="text-red-700">*</sup></label>
-                            <input type="email"
-                            v-model="email" 
-                            name="email" 
-                            placeholder="votre Email"
-                                class="leading-none bg-white-100 border-2 border-cyan-900 text-slate-900 p-3 focus:outline-none focus:border-green-500 mt-4 border-b-2 " />
-                        </div>
-                    </div>
-                    <div class="md:flex items-center mt-8">
-                        <div class="w-full flex flex-col">
-                            <label class="font-semibold leading-none">Sujet <sup class="text-red-700">*</sup></label>
-                            <input type="text"
-                            v-model="sujet" 
-                            name="sujet" 
-                            placeholder="votre sujet"
-                                class="leading-none bg-white-100 border-2 border-cyan-900 text-slate-900 p-3 focus:outline-none focus:border-green-500 mt-4 border-b-2 " />
-                        </div>
+              <div class="flex flex-col ">
+                <input
+                    v-model="nom"
+                    type="text"
+                    name="nom"
+                    placeholder="votre nom"
+                    class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                    id="exampleFormControlInput2" required>
+              </div><br>
+              <div class="flex flex-col">
+                <input
+                    v-model="prenom"
+                    type="text"
+                    placeholder="Prénom"
+                    class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                    id="exampleFormControlInput2" required>
+              </div><br>
+              <div class="flex flex-col">
+                <input
+                    v-model="email"
+                    type="email"
+                    placeholder="avshop@yahoo.fr"
+                    class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                    id="exampleFormControlInput2" required>
+              </div><br>
+              <div class="flex flex-col">
+                <input
+                    v-model="sujet"
+                    type="text"
+                    placeholder="votre sujet"
+                    class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                     required>
+              </div><br>
+              <div class="flex flex-col">
+                <textarea
+                    v-model="message"
+                    name="message"
 
-                    </div>
-                    <div>
-                        <div class="w-full flex flex-col mt-8">
-                            <label class="font-semibold leading-none">Message <sup class="text-red-700">*</sup></label>
-                            <textarea type="text"
-                            v-model="message" 
-                            name="message" 
-                            placeholder="votre message"
-                                class="h-40 text-base leading-none border-2 border-cyan-900 bg-white-100 text-slate-900 p-3 focus:outline-none focus:border-green-500 mt-4 border-b-2 ">
-                            </textarea>
-                        </div>
-                    </div>
-                    <div class="flex items-center justify-center w-full">
-                        <button class="mt-9 font-semibold leading-none  py-4 px-10 bg-cyan-500 hover:bg-green-600">
-                            Envoyer
-                        </button>
-                    </div>
-                </form>
-            </div>
+                    type="text"
+                    placeholder="votre message"
+                    class="form-control block w-full px-4 py-2 text-xl font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none "
+                    id="exampleFormControlInput2" required>
+                  </textarea>
+              </div><br>
+
+              <div class="flex justify-center">
+                <button class=" bg-green-900 hover:bg-orange-400  text-white px-4 py-2 mt-5" type="submit">Envoyer</button>
+              </div>
+            </form>
+          </div>
         </div>
-    </div>
+      </div>
+    </section>
+
+  </main>
+
 </template>
 <script>
 import emailjs from 'emailjs-com';

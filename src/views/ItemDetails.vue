@@ -1,17 +1,17 @@
 <template>
     <main>
        <div class="mt-16" v-if="currentItem">
-        <h2 class="text-5xl font-semibold text-cyan-500">{{ currentItem[0].title}}</h2>
-        <h3 class="text-xl font-semibold text-cyan-900 my-4">{{ currentItem[0].category}}</h3>
+        <h2 class="text-5xl font-semibold text-green-900">{{ currentItem[0].title}}</h2>
+        <h3 class="text-xl font-semibold text-green-900 my-4">{{ currentItem[0].category}}</h3>
         <img :src="currentItem[0].image" :alt="currentItem[0].title">
-        <p class="text-cyan-900">{{currentItem[0].summary}}</p>
+        <p class="text-green-900">{{currentItem[0].summary}}</p>
         <div class="my-8">
-         <p class="font-thin text-cyan-900">{{currentItem[0].content}}</p>
+         <p class="font-thin text-green-900">{{currentItem[0].content}}</p>
         </div>
         <div>
-         <p class="text-cyan-900">Ecrit par : {{currentItem[0].author}} le {{currentItem[0].date}}</p>
+         <p class="text-green-900">Ecrit par : {{currentItem[0].author}} le {{currentItem[0].date}}</p>
         </div>
-        <button class="text-xl py-2 mb-2 px-5 bg-cyan-500 mt-5 font-semibold text-black mb-7 lg:mb-0" >
+        <button class="text-xl py-2 mb-2 px-5 bg-orange-400 hover:bg-green-900 mt-5 font-semibold text-white mb-7 lg:mb-0" >
                     <router-link to="contact">contact vendeur</router-link>
                 </button>
 

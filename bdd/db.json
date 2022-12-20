@@ -2,13 +2,32 @@
   "users": [
     {
       "email": "seykou534@yahoo.fr",
-      "password": "$2a$10$SRB2qV2wW3s4pQIdWI9gKODtRT4J1YBFL1VjBock8kYaQTK1cOVUC",
+      "password": "$2a$10$eXJL4CAvc2Yt4XCv4kHYo.Nb0g5fXSpiLuDH8HLxQdm/6d5Wq86J.",
       "nom": "Ba",
       "prenom": "Saikou",
       "telephone": "0767731243",
       "id": 1
+    },
+    {
+      "email": "aime.magnangab@gmail.com",
+      "password": "$2a$10$wxCZDatkJ1dSt1e6w04ofOxGrZm7tFX9xlbVzKo.OeizHFR4m3R3u",
+      "nom": "Magna",
+      "prenom": "Aimé",
+      "telephone": "29865132",
+      "id": 2
+    },
+    {
+      "email": "sedki@davshop.com",
+      "password": "$2a$10$ADpOrxyJ4IBZj3WJO56HiuNj6FiOxiyuns5afsfQYQOXWRVDj5LJq",
+      "nom": "sed",
+      "prenom": "sedki",
+      "telephone": "0745874568",
+      "id": 3
     }
   ],
+
+
+
   "posts": [
     {
       "id": 1,
