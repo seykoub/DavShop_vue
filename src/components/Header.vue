@@ -34,17 +34,17 @@
             </router-link>
           </li>
 
-          <li class="text-cyan-900    text-lg ">
+          <li class="text-green-900    text-lg ">
             <router-link to="ItemDetails" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown"
               class-active="active" aria-expanded="false">
               Mon compte
             </router-link>
-             <ul class="dropdown-menu text-green-900  text-lg" v-if="!currentUser">
-              <li><router-link to="Connexion" class="dropdown-item bg-green-900 text-white">Se connecter</router-link></li>
+             <ul class="dropdown-menu text-white hover:bg-orange-400  text-lg" v-if="!currentUser">
+              <li><router-link to="Connexion" class="dropdown-item bg-green-900 text-white ">Se connecter</router-link></li>
                <li><router-link to="Inscription" class="dropdown-item bg-green-900 text-white">Création de compte</router-link></li> 
             </ul>
             <ul class="dropdown-menu text-green-900  text-lg" v-else>
-              <li><router-link to="Connexion" class="dropdown-item bg-green-900 text-white">Mes annonces</router-link></li>
+              <li><router-link to="/Profil" class="dropdown-item bg-green-900 text-white">Mes annonces</router-link></li>
               <li><button @click="logout" class="dropdown-item bg-green-900 text-white">Deconnexion</button></li>
             </ul>
           </li>
@@ -81,12 +81,12 @@
             </router-link>
           </li>
 
-          <li class="text-white  text-xl text-center border-b-2 border-white py-2 ">
+          <li class="text-white  text-xl text-center border-b-2 border-green-900 py-2 ">
             <router-link to="Inscription" class-active="active" exact>
               Création de compte
             </router-link>
           </li>
-          <li class="text-white  text-xl text-center border-b-2 border-white py-2 ">
+          <li class="text-white  text-xl text-center border-b-2 border-green-900 bg-orange-400 py-2 ">
             <router-link to="Connexion" class-active="active" exact>
               Se connecter
             </router-link>

@@ -59,7 +59,7 @@
 
           <div class="text-center lg:text-left">
             <div class="flex justify-center">
-              <button class=" bg-orange-400 hover:bg-green-900  text-white px-4 py-2 mt-5" type="submit">Envoyer</button>
+              <button class=" bg-orange-400 hover:bg-green-900  text-white px-4 py-2 mt-5" type="submit">Se connecter</button>
             </div>
             <p class="text-sm font-semibold mt-2 pt-1 mb-0">
               Vous n'avez pas de compte?

@@ -25,9 +25,6 @@
       "id": 3
     }
   ],
-
-
-
   "posts": [
     {
       "id": 1,
@@ -231,31 +228,41 @@
     },
     {
       "id": 21,
-      "title": "",
+      "title": "Ceinture homme",
       "summary": "",
-      "content": "",
-      "image": "",
-      "author": "",
-      "category": "",
+      "content": "Ceinture cuir marron pour homme. \nDon à venir chercher sur toulouse",
+      "image": "https://images.unsplash.com/photo-1665573708655-7320ed78bbeb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+      "author": "saikou",
+      "category": "Vetement",
       "date": "12/02/23"
     },
     {
-      "id": 22,
-      "title": "saikou",
-      "summary": "moto",
-      "content": "blabla blabla ",
-      "image": "",
-      "author": "gfdbgfb",
-      "category": "Voiture",
+      "id": 33,
+      "title": "Montre ",
+      "summary": "montre pour femme",
+      "content": "Montre femme, bracelet cuire marron",
+      "image": "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=694&q=80",
+      "author": "saikou",
+      "category": "Vetement",
       "date": "12/02/23"
     },
     {
-      "id": 23,
-      "title": "bjdsvkbk",
-      "summary": "jdbvhksedj,;",
-      "content": "r,nbvrkjglnre,;vrjb",
-      "image": "",
-      "author": "rqsghjnytujg",
+      "id": 97,
+      "title": "chaise",
+      "summary": "occasion, je m'en débarrasse car je dois déménager",
+      "content": "Chaise de bureau presque neuf",
+      "image": "https://unsplash.com/fr/photos/Pvse_0mSm6Y",
+      "author": "saikou",
+      "category": "Outillages",
+      "date": "12/02/23"
+    },
+    {
+      "id": 98,
+      "title": "Chaise",
+      "summary": "Chaise maronne",
+      "content": "chaise de bureau presque neuve à venir chercher sur toulouse",
+      "image": "https://images.unsplash.com/photo-1612372606404-0ab33e7187ee?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=678&q=80",
+      "author": "saikou",
       "category": "Outillages",
       "date": "12/02/23"
     }

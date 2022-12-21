@@ -11,8 +11,9 @@
           Vous pouvez aussi vendre vos articles à des particuliers. Il vous suffit de négocier avec votre acheteur via davshop.
           Rendez-vous la vie facile avec davshop</p>
       </div>
-    <div class="w-full lg:w-1/2 h-40px">
-      <img src="../assets/DavShop_icon_presta-01.png" alt="">
+    <div class="w-full lg:w-1/2 h-40px aspect-video  object-cover">
+      <img
+          src="../assets/DavShop_icon_presta-01.png" alt="">
     </div>
   </section>
     <hr>
@@ -37,11 +38,11 @@
   <section>
     <div class=" flex flex-nowrap justify-between grid-flow-col gap-4 mt-4" height="50" >
       <div class="block my-2 mx-2 p-6 rounded-lg shadow-lg bg-white  max-w-sm hover:bg-orange-400 "><img src="../assets/Icone-01.png" alt="" width="80" />
-      <p>Votre boutique davshop vous permet de faire beaucoup de chose depuis votre canapé</p></div>
+        <router-link to="Propos" class="hover:text-decoration-underline text-orange-400"> <p>Votre boutique davshop vous permet de faire beaucoup de chose depuis votre canapé</p></router-link></div>
       <div class="block my-2 mx-2 p-6 rounded-lg shadow-lg bg-white  max-w-sm "><img src="../assets/Icone-02.png" alt="" width="80" />
-      <p>Le Don, ah! que c'est bien de penser aux autres. Il y'a encore de l'humanité en nous</p></div>
+        <router-link to="Propos" class=" text-orange-400"><p>Le Don, ah! que c'est bien de penser aux autres. Il y'a encore de l'humanité en nous</p></router-link></div>
       <div class="block my-2 mx-2 p-6 rounded-lg shadow-lg bg-white  max-w-sm "><img src="../assets/Icone-03.png" alt="" width="80" />
-      <p>Vous étes ok, mettez vos articles dans votre panier et hop!</p></div>
+        <router-link to="Propos" class="hover:text-decoration-underline decoration-green-900 text-orange-400" @click="goToPropos(propos)"><p>Vous étes ok, mettez vos articles dans votre panier et hop!</p></router-link></div>
       <!-- Add the style and icon you want using the String format -->
       </div>
   </section>

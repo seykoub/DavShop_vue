@@ -194,7 +194,7 @@ export const posts = [
         id: 8,
         title : "Chaussure",
         summary: "neuf !",
-        content: `35 euros`,
+        content: `35 euros Rebond Dribble Étape doucement Étoile du cerceau Hoopz Slamdunk Bulles Tireurs Ballons gonflables`   ,
         category: "Vetement",
         author: "saikou",
         date: "10/11/2022",

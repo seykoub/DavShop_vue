@@ -15,7 +15,7 @@
 
             <!-- Modal ajouter d'annonce -->
           <form
-              class="absolute top-10 bg-white w-full p-10"
+              class="z-40 absolute top-10 bg-white w-full p-10"
               v-show="modalOpen"
               @submit.prevent="handleSubmit">
             <div>

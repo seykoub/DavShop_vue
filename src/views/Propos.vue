@@ -2,7 +2,7 @@
   <div class="">
         <div class="block my-2 mx-2 p-6 rounded-lg  bg-emerald-50  w-full ">
           <h5 class="text-gray-900 text-center text-xl leading-tight font-medium  mb-2">A propos</h5>
-          <p class="text-gray-700 text-base mb-4">
+          <p class="text-gray-700 text-base mt-6 mb-4">
             Le concept de notre site se repose sur trois volets au choix : Donner, Acheter et Vendre
             Davshop se contente de vous mettre en relation avec les utilisateurs de ce site.
             Tout est gratuit de notre coté, toutes vos annonces en un seul endroit. Vous comprenez dès lors que ce que vous concluez
