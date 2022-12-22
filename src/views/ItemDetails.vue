@@ -8,11 +8,17 @@
         <div class="my-8">
          <p class="font-thin text-green-900">{{currentItem.content}}</p>
         </div>
+        <div class="my-8">
+         <p class="font-thin text-green-900">{{currentUser.email}}</p>
+        </div>
+        <div class="my-8">
+         <p class="font-thin text-green-900">{{currentUser.telephone}}</p>
+        </div>
         <div>
          <p class="text-green-900">Ecrit par : {{currentItem.author}} le {{currentItem.date | date}}</p>
         </div>
         <button class="text-xl py-2 mb-2 px-5 bg-orange-400 hover:bg-green-900 mt-5 font-semibold text-white mb-7 lg:mb-0" >
-                    <router-link to="contact">contact vendeur</router-link>
+                    <router-link to="/contact">contact vendeur</router-link>
                 </button>
 
                 <BackButton />
@@ -26,6 +32,8 @@
 import BackButton from '../components/State/BackButton.vue'
 import axios from 'axios'
 
+import {  mapGetters } from 'vuex';
+
 export default {
     name: "ItemDetails",
     components: {
@@ -33,7 +41,7 @@ export default {
     },
     data() {
         return {
-            currentItem: null
+            currentItem: null,
         }
     },
     async mounted() {
@@ -44,6 +52,9 @@ export default {
             this.currentItem = data;
         })
         
+    },
+    computed:{
+      ...mapGetters(['currentUser'])
     },
     filters: {
     date(dateToBeFormatted) {
