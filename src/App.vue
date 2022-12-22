@@ -17,6 +17,7 @@
 <script>
 import Header from '@/components/Header.vue';
 import Footer from '@/components/Footer.vue';
+import { mapActions, mapGetters } from 'vuex';
 
 export default {
   name: 'App',
@@ -30,11 +31,21 @@ export default {
     }
   },
   methods: {
-
+    ...mapActions(['storeCurrent']),
+    
   },
   mounted(){
+    console.log(localStorage.getItem('userId'));
+    console.log(this.currentUser);
     if(localStorage.getItem('userId') != null)
-    this.storeCurrent()
+    
+    {
+      console.log("if");
+      this.storeCurrent()}
+
+    },
+    computed:{
+      ...mapGetters(['currentUser'])
     }
   
 }

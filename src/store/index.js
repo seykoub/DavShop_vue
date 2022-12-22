@@ -35,14 +35,17 @@ const store = new VueX.Store({
                     commit ('SET_ERROR', error.response.data)
                 })
         },
-        async storeCurrent ({commit}) {
-            await axios.get(process.env.VUE_APP_API_URL + "users/" + localStorage.getItem('userId'))
-            .then((res) => {
-                commit("SET_CURRENT_USER", res.data)
-            }).catch((e) => {
-                console.error(e)
-           })
-        },
+        async storeCurrent({commit}, ){
+            await axios.get("http://localhost:3000/users/" + localStorage.getItem('userId'))
+                .then((res) => {
+                    commit('LOGIN', {user: res.data, remrememberMe:false})
+                    console.log(res.data);
+                    commit('REMOVE_ERROR')
+                    router.push('/MesAnnonces')
+                })
+                .catch(error =>{
+                    commit ('SET_ERROR', error.response.data)
+                })},
         get_user({commit}) {
             commit('GET_USER')
         },
@@ -86,7 +89,9 @@ const store = new VueX.Store({
         },
 
         LOGIN(state, {user, rememberMe}){
+            console.log('user', user);
             state.user = user
+            console.log('state', state.user);
             if(rememberMe) localStorage.setItem('USER', JSON.stringify(user))
 
         },

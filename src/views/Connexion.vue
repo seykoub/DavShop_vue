@@ -86,12 +86,12 @@ export default {
 name : 'Connexion',
 //components: {Spinner},
   computed: {
-  ...mapGetters(["getError"])
-
+  ...mapGetters(["getError", "currentUser"])
    },
   methods: {
     login() {
       this.$store.dispatch('login',{credentials:this.credentials, rememberMe: this.rememberMe} )
+      console.log(this.currentUser);
 
     }
   },
@@ -105,7 +105,7 @@ name : 'Connexion',
       rememberMe:false
     }
   
-}
+},
 
 }
 </script>
