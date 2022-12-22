@@ -10,6 +10,7 @@ import VueRouter from 'vue-router'
 import Forgotpassword from '../views/Forgotpassword.vue'
 import Renewpassword from '../views/Renewpassword.vue'
 import MesAnnonces from '../views/MesAnnonces.vue'
+import UpdateAnnonce from '../views/UpdateAnnonce.vue'
 import store from "@/store/index";
 
 // indinque a Vuejs qu'il peux utiliser le router partout 
@@ -19,10 +20,11 @@ const routes = [
     {path: '/', name: "Home", component: Home, alias: "/home"},
     {path: '/Annonces', name : "Annonces", component:Annonces},
     {path: '/MesAnnonces', name : "MesAnnonces", component:MesAnnonces, meta: { requiresAuth: true }},
+    {path: '/update-annonce/:id', name : "UpdateAnnonce", component:UpdateAnnonce, meta: { requiresAuth: true }},
     {path: '/Connexion', name : "Connexion", component:Connexion},
     {path: '/Inscription', name: "Inscription", component: Inscription},
     {path: '/Contact', name: 'Contact', component: Contact },
-    {path: '/ItemDetails', name:'ItemDetails', component: ItemDetails},
+    {path: '/ItemDetails/:id', name:'ItemDetails', component: ItemDetails},
     {path: '/Propos', name : "Propos", component:Propos},
     {path: '/Forgotpassword', name: "Forgotpassword", component: Forgotpassword},
     {path: '/Renewpassword', name: "Renewpassword", component: Renewpassword},

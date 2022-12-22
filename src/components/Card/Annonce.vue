@@ -1,23 +1,34 @@
 <template>
   <main>
 
-    <section class="w-auto " @click="goToItem(item.id)">
+    <section class="w-auto">
+      <div  @click="goToItem(item.id)">
+      <p>{{ item.id }}</p>
       <img class="aspect-video  object-cover object-center" :src="item.image" />
       <h3 class="text-lg font-bold bg-gradient text-green-900  my-1"> {{ item.title }}</h3>
       <h4 class="text-green-900 text-xl mb-4 font-bold"> {{ item.category }}</h4>
       <p class="tracking-tight font-light text-green-900 leading-6 text-center"> {{ item.content | truncate(200) }}</p>
+    </div>
     </section>
 
     <div v-if="$route.path == '/MesAnnonces'">
-      <button type="button" class="text-yellow-400 hover:text-white border border-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:outline-none
+      <button 
+      @click="dataProduct.id = item.id"
+      data-bs-toggle="modal" data-bs-target="#update"
+       type="button" class="text-yellow-400 hover:text-white border border-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:outline-none
                         focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-yellow-300 dark:text-yellow-300
-                        dark:hover:text-white dark:hover:bg-yellow-400 dark:focus:ring-yellow-900">Modifier</button>
+                        dark:hover:text-white dark:hover:bg-yellow-400 dark:focus:ring-yellow-900">
+                        <router-link :to="'/update-annonce/' + item.id">
+                          Modifier
+                        </router-link>
+                        </button>
 
       <button @click="deletePost(item.id)" type="button"
         class="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4
                         focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2
                         dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">Supprimer</button>
     </div>
+
 
 
   </main>
@@ -36,8 +47,17 @@ import axios from "axios";
 export default {
   name: 'Annonce',
   props: ['item'],
+
   data(){
     return{
+      dataProduct:{
+        id: 0,
+        title:'',
+        image:'',
+        content:''
+      },
+      messageDeleted:'',
+      messageUpdate:''
       
     }
   },
@@ -52,10 +72,11 @@ export default {
       )
       .then()
       window.location.reload()
-        .then()
-      alert("Post deleted!");
-
+      .then(()=>{
+        this.messageDeleted='Deleted'
+      })
     },
+
 
   },
   filters: {

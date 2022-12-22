@@ -49,7 +49,10 @@ export default {
     mounted() {
         this.getAnnonces()
     },
+    
     methods: {
+
+
         btnResetForm() {
             this.search = '';
             this.categoryFilter = '';
@@ -63,7 +66,10 @@ export default {
         async getAnnonces() {
             this.loading = true
             await axios.get(`http://localhost:3000/posts?author=${this.currentUser.nom}&_page=${this.page}&_limit=8`)
-                .then((res) => this.Myproducts = res.data)
+                .then((res) => {
+                    this.Myproducts = res.data
+                    console.log(res.data)
+                })
                 .catch((e) => console.log(e))
                 .finally(() => this.loading = false)
         },
