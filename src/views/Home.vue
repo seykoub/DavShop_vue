@@ -25,7 +25,7 @@
     <!--Carroussel, slide avec hooper-->
     <div class="object-cover pt-4 bg-green-50 mt-0 h-auto">
       <hooper :settings="hooperSettings" >
-        <slide v-for="post in latestPost" :key="post.id">
+        <slide v-for="post in currentItem" :key="post.id">
          <Annonce :item="post"/>
         </slide>
 
@@ -51,8 +51,8 @@
 <script>
 import { Hooper, Slide } from 'hooper';
 import 'hooper/dist/hooper.css';
-import { posts } from '../Data';
 import Annonce from "@/components/Card/Annonce";
+import axios from 'axios'
 
 
 
@@ -64,12 +64,6 @@ export default {
     Hooper,
     Slide
   },
-  computed: {
-    latestPost() {
-      let latest = posts.length + 1;
-      return posts.slice(latest - 9, latest)
-    }
-  },
   data() {
     return {
       hooperSettings: {
@@ -79,7 +73,6 @@ export default {
         playSpeed: 3000,
         vertical: false,
         infiniteScroll:true,
-
         breakpoints: {
 
           400: {
@@ -92,10 +85,32 @@ export default {
             itemsToShow: 3,
           }
         }
-      }
+      },
+      currentItem:[],
+      
+      loading: false
+
     }
-  }
+  },
+  mounted() {
+    this.getAnnonces()
+  },
+  methods:{
+    async getAnnonces(){
+          this.loading = true
+        let filter = this.categoryFilter ? `category=${this.categoryFilter}&` : ""
+        filter += this.search ? `title_like=${this.search}&` : ""
+        await axios.get(`http://localhost:3000/posts?${filter}_page=${this.page}&_limit=8`)
+        .then((res) => this.currentItem = res.data)
+        .catch((e) => console.log(e))
+        .finally(() => this.loading= false)
+      },
+  },
+  
+
+  
 };
 </script>
 <style>
+
 </style>

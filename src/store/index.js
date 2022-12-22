@@ -9,13 +9,12 @@ const store = new VueX.Store({
         user: null,
         token: null,
         recupUser:null,
-        error:null,
+        error:null
     },
 
     getters:{
         currentUser(state){
             return state.user
-
         },
         getError(state){
             return state.error
@@ -29,11 +28,20 @@ const store = new VueX.Store({
                     commit('SET_TOKEN', res.data.accessToken)
                     commit('LOGIN', {user: res.data.user, rememberMe: rememberMe})
                     commit('REMOVE_ERROR')
-                    router.push('/Annonces')
+                    localStorage.setItem("userId", res.data.user.id)
+                    router.push('/MesAnnonces')
                 })
                 .catch(error =>{
                     commit ('SET_ERROR', error.response.data)
                 })
+        },
+        async storeCurrent ({commit}) {
+            await axios.get(process.env.VUE_APP_API_URL + "users/" + localStorage.getItem('userId'))
+            .then((res) => {
+                commit("SET_CURRENT_USER", res.data)
+            }).catch((e) => {
+                console.error(e)
+           })
         },
         get_user({commit}) {
             commit('GET_USER')
@@ -47,6 +55,8 @@ const store = new VueX.Store({
         logout({commit}) {
             commit('LOGOUT')
             commit('REMOVE_TOKEN')
+            localStorage.removeItem("userId")
+            router.push('/Connexion')
 
         },
         cleanrecupuser ({commit}){
@@ -67,10 +77,8 @@ const store = new VueX.Store({
         REMOVE_ERROR(state){
           state.error=null
         },
-
-
         GET_USER(state){
-            state.user = JSON.parse(localStorage.getItem('USER') || '') || null
+            state.user = JSON.parse(localStorage.getItem('USER') || 'null') || null
         },
         GET_RECUP_USER(state, user){
             state.recupUser=user
@@ -78,7 +86,6 @@ const store = new VueX.Store({
         },
 
         LOGIN(state, {user, rememberMe}){
-            console.log(rememberMe)
             state.user = user
             if(rememberMe) localStorage.setItem('USER', JSON.stringify(user))
 

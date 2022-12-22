@@ -1,56 +1,28 @@
 <template>
+  <main>
 
-    <!-- imgclass="flex w-96 flex-col justify-center bg-green-900  shadow-lg shadow-slate-300/60"
-    <img
-      class="aspect-video w-96 object-cover object-center"
-      :src="item.image" />  -->
-    <!-- text information
-    <div class="p-4">
-      <small
-       class="text-white text-lg">
-       {{item.category}}</small>
-      <h1
-      class="text-xl font-medium text-white pb-2 my-1">
-      {{item.title}}</h1>
-      <p
-      class="text-sm tracking-tight font-light text-white leading-6">
-     {{ item.content| truncate(200) }}
-     </p>
-      <hr>
-    </div> -->
+    <section class="w-auto " @click="goToItem(item.id)">
+      <img class="aspect-video  object-cover object-center" :src="item.image" />
+      <h3 class="text-lg font-bold bg-gradient text-green-900  my-1"> {{ item.title }}</h3>
+      <h4 class="text-green-900 text-xl mb-4 font-bold"> {{ item.category }}</h4>
+      <p class="tracking-tight font-light text-green-900 leading-6 text-center"> {{ item.content | truncate(200) }}</p>
+    </section>
 
-    <div class=" flex w-96 object-corver justify-center  shadow-lg shadow-slate-300/60" @click="goToItem(item.id)"  >
-      <section class="w-100 ">
-        <img
-            class="aspect-video  object-cover object-center"
-            :src="item.image" />
-        <h3 class="text-lg font-bold bg-gradient text-green-900  my-1">
-       {{item.title}}</h3>
-        <div>
-          <h4 class="text-green-900 text-xl mb-4 font-bold" > {{item.category}}</h4>
-        </div>
-        <div>
-          <a class="hover:text-decoration-underline text-orange-400">
-          <p class="tracking-tight font-light text-green-900 leading-6 text-center" > {{ item.content| truncate(200) }}</p>
-          </a>
-        </div>
+    <div v-if="$route.path == '/MesAnnonces'">
+      <button type="button" class="text-yellow-400 hover:text-white border border-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:outline-none
+                        focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-yellow-300 dark:text-yellow-300
+                        dark:hover:text-white dark:hover:bg-yellow-400 dark:focus:ring-yellow-900">Modifier</button>
 
-      </section>
-      <div>
-
-        <!--<button type="button" class="text-yellow-400 hover:text-white border border-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:outline-none
-       focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-yellow-300 dark:text-yellow-300
-        dark:hover:text-white dark:hover:bg-yellow-400 dark:focus:ring-yellow-900">Modifier</button>
-        <button @click="deletePost(item.id)"
-                type="button" class="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4
-       focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2
-       dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">Supprimer</button>-->
-      </div>
-
-
-
-
+      <button @click="deletePost(item.id)" type="button"
+        class="text-red-700 hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4
+                        focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2
+                        dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">Supprimer</button>
     </div>
+
+
+  </main>
+
+
 
 
 
@@ -59,26 +31,34 @@
 </template>
 <script>
 import axios from "axios";
+//import router from '../../router';
 
 export default {
   name: 'Annonce',
   props: ['item'],
+  data(){
+    return{
+      
+    }
+  },
   methods: {
     goToItem(id) {
-      this.$router.push({name: 'ItemDetails', params: {id: id}})
+      this.$router.push({ name: 'ItemDetails', params: { id: id } })
     },
     async deletePost(id) {
-
+      this.loading=true
       await axios.delete(
-          "http://localhost:3000/posts/" + id
+        "http://localhost:3000/posts/" + id
       )
-          .then()
+      .then()
+      window.location.reload()
+        .then()
       alert("Post deleted!");
 
     },
 
   },
-  filters :{
+  filters: {
     truncate(value, n) {
       if (value.length > n) {
         return value.slice(0, n - 4) + '...';
@@ -100,6 +80,7 @@ h1 {
   font-variation-settings: "wght" 600, "wdth" 80;
   line-height: 1;
 }
+
 h2 {
   width: 90%;
   font-size: calc(0.75rem + 2vw);
@@ -140,10 +121,9 @@ img {
   filter: drop-shadow(10px 10px 10px rgba(90, 69, 1, 1));
   transition: 0.3s ease;
 }
-a:hover
-{
+
+a:hover {
   text-decoration: underline;
   color: orange;
 }
-
 </style>

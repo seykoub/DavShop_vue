@@ -64,14 +64,6 @@
             </div>
 
             <div class="flex flex-col mb-4">
-              <label for="" class="text-lg font-semibold">Auteur</label>
-              <input
-                  v-model="newItem.author"
-                  type="text" placeholder="nom&prenom"
-                  class="leading-none text-slate-900 py-3 focus:outline-none focus:border-indigo-500 mt-4 border-b-2 border-slate-900 bg-green-50">
-            </div>
-
-            <div class="flex flex-col mb-4">
               <label for="" class="text-lg font-semibold">Image</label>
               <input
                   v-model="newItem.image"
@@ -128,7 +120,7 @@
             <button @click="changePage(-1)" class="bg-orange-400 :active: box-shadox-green-900 w-20 focus:outline-none focus:ring focus:ring-green-900 mr-2">
               Previous
             </button>
-            {{ page }} of 3
+            {{ page }} 
             <button @click="changePage(1)" class="bg-orange-400 :active: box-shadox-green-900 w-20 min-width-full focus:outline-none focus:ring focus:ring-green-900 ml-2">
               Next
             </button>
@@ -193,6 +185,9 @@ export default {
       },
         async handleSubmit() {
             this.loading = true
+            
+            this.newItem.date = Date.now()
+            this.newItem.author = this.currentUser.nom
           await axios.post("http://localhost:3000/posts", this.newItem)
               .then(() => {
                 this.toggleModal()
@@ -206,9 +201,10 @@ export default {
                   image: '',
                   author: '',
                   category: '',
-                  date: '12/02/23'
+                  date: ''
                 }
               })
+              .then(()=> this.$router.push({name: 'MesAnnonces'}))
 
             /*setTimeout(() => {
                 this.annonces.push(this.newItem)
@@ -237,7 +233,7 @@ export default {
     },
 }
 </script>
-<style >
+<style scoped >
 
 .pagination {
   height: 4rem;

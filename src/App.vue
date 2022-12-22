@@ -31,7 +31,12 @@ export default {
   },
   methods: {
 
-  }
+  },
+  mounted(){
+    if(localStorage.getItem('userId') != null)
+    this.storeCurrent()
+    }
+  
 }
 </script>
 

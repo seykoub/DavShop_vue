@@ -44,7 +44,7 @@
                <li><router-link to="Inscription" class="dropdown-item bg-green-900 text-white">Création de compte</router-link></li> 
             </ul>
             <ul class="dropdown-menu text-green-900  text-lg" v-else>
-              <li><router-link to="/Profil" class="dropdown-item bg-green-900 text-white">Mes annonces</router-link></li>
+              <li><router-link to="/MesAnnonces" class="dropdown-item bg-green-900 text-white">Mes annonces</router-link></li>
               <li><button @click="logout" class="dropdown-item bg-green-900 text-white">Deconnexion</button></li>
             </ul>
           </li>
